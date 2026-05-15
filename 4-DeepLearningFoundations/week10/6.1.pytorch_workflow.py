@@ -154,7 +154,45 @@ with torch.no_grad():
 print(f"\n------ OUTPUT -------")
 print(f"\nACTUAL EXPECTED OUTPUT")
 print(f"\ny:  {y}")
-print(f"\nPredictions before the model was evaluated\n")
-print(f"\ninitial_predictions:  {initial_predictions}\n\ninitial_loss:{initial_loss}")
-print(f"\nPredictions after the model was evaluated\n")
-print(f"\nfinal_predictions:  {final_predictions}\n\nfinal_loss:{final_loss}")
+print(f"\n~~~ Predictions before the model was evaluated ~~~")
+print(f"initial_predictions:  {initial_predictions}\n\ninitial_loss:{initial_loss}")
+print(f"\n~~~ Predictions after the model was evaluated ~~~")
+print(f"final_predictions:  {final_predictions}\n\nfinal_loss:{final_loss}")
+
+'''------ OUTPUT -------
+
+ACTUAL EXPECTED OUTPUT
+
+y:  tensor([[20.],
+        [30.],
+        [15.],
+        [40.],
+        [28.],
+        [26.],
+        [21.],
+        [35.]])
+
+~~~ Predictions before the model was evaluated ~~~
+initial_predictions:  tensor([[ 0.4002],
+        [-0.3565],
+        [ 0.3857],
+        [-0.6236],
+        [ 0.2515],
+        [-0.3710],
+        [ 0.2370],
+        [-0.4012]])
+
+initial_loss:789.9099731445312
+
+~~~ Predictions after the model was evaluated ~~~
+final_predictions:  tensor([[20.8393],
+        [32.9540],
+        [13.9913],
+        [38.7481],
+        [29.7942],
+        [26.1059],
+        [22.9462],
+        [38.2216]])
+
+final_loss:3.6765213012695312
+'''

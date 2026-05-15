@@ -17,7 +17,7 @@ A motivation to learn AI using Python
 |       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | ✅ Done  | Feb 2026  |
 |       | Week 8 | Mini capstone | Consolidation of above | ✅ Done  | Feb 2026  |
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | ✅ Done | Mar 2026 |
-|       | Week 10 | PyTorch basics | Matrix multiplication, dot products | 📅 To Do |  |
+|       | Week 10 | PyTorch basics | Matrix multiplication, dot products | ✅ Done | May 2026 |
 |       | Week 11 | CNNs | Convolution operation math | 📅 To Do |  |
 |       | Week 12 | Mini capstone | Consolidation of above | 📅 To Do |  |
 | **5 – Applied AI**  | Week 13 | NLP | Probability distributions, cosine similarity | 📅 To Do |  |
@@ -234,21 +234,46 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>🔜 📕 Week 10: PyTorch Basics </summary>
+<summary>✅ 📕 Week 10: PyTorch Basics </summary>
+<br/>
+
+- **Status**: ✅ Completed
+- **Topics Covered**:
+    - What PyTorch is and why it is useful in deep learning workflows
+    - Tensors as the core data structure in PyTorch
+    - Tensor creation, shape, dtype, indexing, slicing, and reshaping
+    - Tensor operations: element-wise math, reductions, broadcasting, `reshape`, `unsqueeze`, and `squeeze`
+    - Autograd basics: `requires_grad`, computation graphs, `.backward()`, and `.grad`
+    - Gradient accumulation and why `optimizer.zero_grad()` is required
+    - Building models with `nn.Module`, `nn.Linear`, `nn.Sequential`, and `forward()`
+    - Loss functions and optimizers in PyTorch training workflows
+    - `Dataset`, `TensorDataset`, `DataLoader`, batches, mini-batches, and epochs
+    - Training vs evaluation mode: `model.train()`, `model.eval()`, and `torch.no_grad()`
+    - A small end-to-end PyTorch workflow tying tensors, model, loss, optimizer, training loop, and evaluation together
+- **Time Frame**: Apr & May 2026
+- **Week10 Content -->**: [▶️ Week10](docs/curriculum/4-DeepLearningFoundations/10.week10.md)
+
+</details>
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>🔜 📕 Week 11: Convolutional Neural Networks \(CNNs\)</summary>
 <br/>
 
 - **Status**: 🔜 Planned
 - **Topics Planned**:
-    - What PyTorch is and why it is useful in deep learning workflows
-    - Tensors as the core data structure in PyTorch
-    - Tensor creation, shape, dtype, indexing, slicing, and reshaping
-    - Autograd basics: `requires_grad`, computation graphs, and `.backward()`
-    - Building models with `nn.Module`, `nn.Linear`, and `forward()`
-    - How loss functions and optimizers fit into the PyTorch training workflow
-    - Dataset, DataLoader, batches, and mini-batch iteration
-    - A small end-to-end PyTorch workflow tying tensors, model, loss, optimizer, and training loop together
-- **Time Frame**: Apr 2026  
-- **Week10 Content -->**: [▶️ Week10](docs/curriculum/4-DeepLearningFoundations/10.week10.md)
+    - Why CNNs are useful for image and grid-like data
+    - Limitations of fully connected networks for images
+    - Image tensors and shape conventions: height, width, channels, and batches
+    - Convolution intuition: filters, kernels, feature maps, and local patterns
+    - Convolution math: sliding windows, dot products, stride, and padding
+    - Understanding channels: grayscale vs RGB inputs
+    - Pooling layers: max pooling and average pooling
+    - CNN architecture flow: convolution → activation → pooling → flatten → classifier
+    - Building a first small CNN in PyTorch
+    - Training and evaluating a CNN on a small image-style dataset
+    - Common CNN mistakes: wrong tensor shape, channel mismatch, flatten-size errors, and overfitting
+- **Time Frame**: May 2026
+- **Week11 Content -->**: [▶️ Week11](docs/curriculum/4-DeepLearningFoundations/11.week11.md)
 
 </details>
 
