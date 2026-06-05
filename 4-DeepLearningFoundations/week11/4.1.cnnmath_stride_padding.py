@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 # =============================================================================
-# 1. No Padding , Stride 1
+# Running through several scenarios with padding and stride
 # =============================================================================
 images = torch.rand(4,1,7,7) #Taking a smaller picture for easier explanation
 
