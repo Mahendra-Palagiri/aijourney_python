@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNN Convolution Explorer</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 20px 16px 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #38bdf8;
+    margin-bottom: 4px;
+}
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+}
+
+/* Formula */
+.formula-bar {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.formula-eq {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: #94a3b8;
+}
+.hi { font-weight: 700; padding: 1px 6px; border-radius: 3px; color: #fff; }
+.hi-i { background: #1d4ed8; }
+.hi-p { background: #059669; }
+.hi-f { background: #b45309; }
+.hi-s { background: #7c3aed; }
+.formula-result { font-size: 1.2rem; font-weight: 700; color: #5eead4; margin-top: 6px; }
+
+/* Playback — use margins not gap (Safari <14.1 doesn't support flex gap) */
+.playback {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.playback > * { margin: 4px 5px; }
+
+.btn {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+}
+.btn-play  { background: #0284c7; color: #fff; }
+.btn-step  { background: #1e3a5f; color: #7cb9e8; border: 1px solid #2d5180; }
+.btn-reset { background: #1e293b; color: #64748b; border: 1px solid #334155; }
+.btn:active { opacity: 0.75; }
+
+.step-ctr { color: #64748b; font-size: 0.82rem; font-family: 'Courier New', monospace; }
+
+.speed-row {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: 0.78rem;
+    color: #64748b;
+}
+.speed-row span { margin: 0 4px; }
+
+/* Range inputs — explicit webkit styling so Safari shows them correctly */
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: #334155;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    vertical-align: middle;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #38bdf8;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #38bdf8;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+#speed-sl { width: 80px; }
+
+.step-desc {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-style: italic;
+    min-height: 20px;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+/* Main viz area */
+.viz-area {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.viz-area > * { margin: 8px 10px; }
+
+.viz-section {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.viz-section > * { margin-bottom: 6px; }
+
+.viz-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    font-weight: 600;
+}
+.viz-dims { font-size: 0.88rem; font-weight: 700; font-family: 'Courier New', monospace; min-height: 20px; }
+
+.sep {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding-top: 52px;
+    color: #475569;
+    font-size: 1.3rem;
+    min-width: 28px;
+    margin: 8px 4px;
+}
+.sep-lbl { font-size: 0.6rem; text-transform: uppercase; color: #334155; letter-spacing: 0.5px; }
+
+/* Grid cells — use <table> so Safari never has to deal with CSS grid quirks */
+table.viz-grid {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+table.viz-grid td {
+    border-radius: 2px;
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0;
+    line-height: 1;
+    cursor: default;
+}
+
+td.px-input  { border: 1px solid rgba(255,255,255,0.04); }
+td.px-pad    { background: #0a1320; border: 1px dashed #1e3a5f; color: #1e3a5f; }
+td.px-filt   { background: #2d1b00; border: 2px solid #f59e0b; color: #fcd34d; font-weight: 700; }
+td.px-fpad   { background: #180f00; border: 2px solid #78350f; color: #92400e; font-weight: 700; }
+td.px-kernel { background: #1c1400; border: 1px solid #451a00; color: #fbbf24; }
+td.px-empty  { background: #0d1f1a; border: 1px solid #0f3529; color: #0f3529; }
+td.px-done   { background: #064e3b; border: 1px solid #065f46; color: #34d399; }
+td.px-cur    {
+    background: #10b981;
+    border: 2px solid #34d399;
+    color: #022c22;
+    font-weight: 800;
+    -webkit-animation: pop 0.3s ease-out;
+    animation: pop 0.3s ease-out;
+}
+
+@-webkit-keyframes pop {
+    0%   { -webkit-transform: scale(0.5); opacity: 0.5; }
+    100% { -webkit-transform: scale(1);   opacity: 1;   }
+}
+@keyframes pop {
+    0%   { transform: scale(0.5); opacity: 0.5; }
+    100% { transform: scale(1);   opacity: 1;   }
+}
+
+/* Legend */
+.legend {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.legend > * { margin: 4px 7px; }
+.leg {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: 0.72rem;
+    color: #64748b;
+}
+.leg-sq { width: 13px; height: 13px; border-radius: 2px; margin-right: 5px; -webkit-flex-shrink: 0; flex-shrink: 0; }
+
+/* Controls */
+.controls {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 14px;
+}
+.ctrl { width: 50%; padding: 6px 8px; }
+@media (min-width: 480px) { .ctrl { width: 25%; } }
+
+.ctrl-hdr {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: 0.78rem;
+    margin-bottom: 6px;
+}
+.ctrl-name { color: #94a3b8; font-weight: 600; }
+.ctrl-val { padding: 1px 7px; border-radius: 3px; font-size: 0.75rem; font-family: 'Courier New', monospace; font-weight: 700; color: #fff; }
+.ctrl input[type=range] { width: 100%; }
+
+.hint-box {
+    background: #132030;
+    border: 1px solid #1e4060;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #7cb9e8;
+    text-align: center;
+}
+.hint-box b { color: #38bdf8; }
+</style>
+</head>
+<body>
+
+<h1>CNN Convolution Explorer</h1>
+<p class="subtitle">Animate how stride, padding, and filter size shape your feature maps</p>
+
+<div class="formula-bar">
+    <div class="formula-eq">
+        Output&nbsp;=&nbsp;&#8970;
+        (<span class="hi hi-i" id="f-i">7</span>
+        + 2&times;<span class="hi hi-p" id="f-p">0</span>
+        &minus; <span class="hi hi-f" id="f-f">3</span>)
+        &divide; <span class="hi hi-s" id="f-s">1</span>
+        &#8971; + 1
+    </div>
+    <div class="formula-result" id="f-r">= 5 &times; 5 = 25 outputs</div>
+</div>
+
+<div class="playback">
+    <button class="btn btn-reset" id="btn-reset">&#8635; Reset</button>
+    <button class="btn btn-step"  id="btn-step">&#9197; Step</button>
+    <button class="btn btn-play"  id="btn-play">&#9654; Play</button>
+    <span class="step-ctr" id="step-ctr">0 / 25</span>
+    <div class="speed-row">
+        <span>Speed</span>
+        <input type="range" id="speed-sl" min="1" max="20" value="8">
+        <span id="speed-v">8</span>
+    </div>
+</div>
+
+<p class="step-desc" id="step-desc">Press Play or Step to start the animation</p>
+
+<div class="viz-area">
+    <div class="viz-section">
+        <div class="viz-title">Input Image</div>
+        <div class="viz-dims" id="d-input" style="color:#60a5fa;">7&times;7</div>
+        <table class="viz-grid" id="input-grid"></table>
+    </div>
+
+    <div class="sep">
+        <span>&#215;</span>
+        <span class="sep-lbl">conv</span>
+    </div>
+
+    <div class="viz-section">
+        <div class="viz-title">Filter / Kernel</div>
+        <div class="viz-dims" id="d-filter" style="color:#fbbf24;">3&times;3</div>
+        <table class="viz-grid" id="filter-grid"></table>
+    </div>
+
+    <div class="sep"><span>&#8594;</span></div>
+
+    <div class="viz-section">
+        <div class="viz-title">Output Feature Map</div>
+        <div class="viz-dims" id="d-output" style="color:#34d399;">5&times;5</div>
+        <table class="viz-grid" id="output-grid"></table>
+    </div>
+</div>
+
+<div class="legend">
+    <div class="leg"><div class="leg-sq" style="background:#1e4080;border:1px solid #3b6fbd;"></div>Input pixel</div>
+    <div class="leg"><div class="leg-sq" style="background:#0a1320;border:1px dashed #1e3a5f;"></div>Padding (zero)</div>
+    <div class="leg"><div class="leg-sq" style="background:#2d1b00;border:2px solid #f59e0b;"></div>Active filter window</div>
+    <div class="leg"><div class="leg-sq" style="background:#064e3b;border:1px solid #065f46;"></div>Computed output</div>
+    <div class="leg"><div class="leg-sq" style="background:#10b981;border:2px solid #34d399;"></div>Current output cell</div>
+</div>
+
+<div class="controls">
+    <div class="ctrl">
+        <div class="ctrl-hdr">
+            <span class="ctrl-name" style="color:#93c5fd;">Input Size (N)</span>
+            <span class="ctrl-val" style="background:#1d4ed8;" id="cv-inputSize">7</span>
+        </div>
+        <input type="range" id="sl-inputSize" min="4" max="12" value="7">
+    </div>
+    <div class="ctrl">
+        <div class="ctrl-hdr">
+            <span class="ctrl-name" style="color:#6ee7b7;">Padding (P)</span>
+            <span class="ctrl-val" style="background:#059669;" id="cv-padding">0</span>
+        </div>
+        <input type="range" id="sl-padding" min="0" max="4" value="0">
+    </div>
+    <div class="ctrl">
+        <div class="ctrl-hdr">
+            <span class="ctrl-name" style="color:#fcd34d;">Filter Size (F)</span>
+            <span class="ctrl-val" style="background:#b45309;" id="cv-filterSize">3</span>
+        </div>
+        <input type="range" id="sl-filterSize" min="1" max="7" value="3">
+    </div>
+    <div class="ctrl">
+        <div class="ctrl-hdr">
+            <span class="ctrl-name" style="color:#c4b5fd;">Stride (S)</span>
+            <span class="ctrl-val" style="background:#7c3aed;" id="cv-stride">1</span>
+        </div>
+        <input type="range" id="sl-stride" min="1" max="4" value="1">
+    </div>
+</div>
+
+<div class="hint-box">
+    &#128161; <b>Tip:</b> Set Padding = <span id="same-pad-val">1</span> with Stride = 1
+    for <b>"same" padding</b> &mdash; output size equals input size
+</div>
+
+<script>
+(function () {
+
+    /* ── State ─────────────────────────────────────── */
+    var S = {
+        inputSize:  7,
+        padding:    0,
+        filterSize: 3,
+        stride:     1,
+        step:       0,
+        playing:    false,
+        timerId:    null,
+        speed:      8
+    };
+
+    /* ── Pre-generate a 16×16 "image" (Gaussian blob) ─
+       Avoid ** operator — use x*x for squares instead   */
+    var MAXSZ = 16;
+    var IMG = (function () {
+        var arr = [], i, j, cx, cy, R, dx, dy, d, blob, tex;
+        cx = (MAXSZ - 1) / 2;
+        cy = (MAXSZ - 1) / 2;
+        R  = cx * 0.72;
+        for (i = 0; i < MAXSZ; i++) {
+            arr[i] = [];
+            for (j = 0; j < MAXSZ; j++) {
+                dx   = i - cy;
+                dy   = j - cx;
+                d    = Math.sqrt(dx * dx + dy * dy);
+                blob = 230 * Math.exp(-(d * d) / (2 * (R / 2.2) * (R / 2.2)));
+                tex  = 18 * Math.sin(i * 1.1) * Math.sin(j * 0.9);
+                arr[i][j] = Math.round(Math.max(8, Math.min(255, blob + tex + 12)));
+            }
+        }
+        return arr;
+    }());
+
+    /* ── Gaussian kernel ──────────────────────────── */
+    var KERNEL;
+    function makeKernel(size) {
+        var k = [], i, j, cx, sigma, dx, dy, v, sum;
+        cx    = (size - 1) / 2;
+        sigma = Math.max(0.8, size / 3);
+        sum   = 0;
+        for (i = 0; i < size; i++) {
+            k[i] = [];
+            for (j = 0; j < size; j++) {
+                dx      = i - cx;
+                dy      = j - cx;
+                v       = Math.exp(-(dx * dx + dy * dy) / (2 * sigma * sigma));
+                k[i][j] = v;
+                sum    += v;
+            }
+        }
+        for (i = 0; i < size; i++)
+            for (j = 0; j < size; j++)
+                k[i][j] = Math.round(k[i][j] / sum * 100) / 100;
+        return k;
+    }
+    KERNEL = makeKernel(S.filterSize);
+
+    /* ── Math helpers ─────────────────────────────── */
+    function outSize() {
+        return Math.floor((S.inputSize + 2 * S.padding - S.filterSize) / S.stride) + 1;
+    }
+    function totalSteps() {
+        var o = outSize();
+        return o > 0 ? o * o : 0;
+    }
+    function stepToPos(idx) {
+        var o = outSize();
+        if (o <= 0) return null;
+        return {
+            inRow:  Math.floor(idx / o) * S.stride,
+            inCol:  (idx % o) * S.stride,
+            outRow: Math.floor(idx / o),
+            outCol: idx % o
+        };
+    }
+    function pixelColor(v) {
+        var t = v / 255;
+        return 'rgb(' +
+            Math.round(12 + t * 28)  + ',' +
+            Math.round(38 + t * 88)  + ',' +
+            Math.round(80 + t * 162) + ')';
+    }
+
+    /* ── Build a <tbody> for the input grid ─────────── */
+    function renderInput() {
+        var inSz = S.inputSize, pad = S.padding, fSz = S.filterSize;
+        var ps   = inSz + 2 * pad;
+        var cs   = Math.min(44, Math.max(18, Math.floor(340 / ps)));
+        var fsz  = Math.max(7, Math.floor(cs * 0.22));
+        var pos  = (S.step > 0) ? stepToPos(S.step - 1) : null;
+
+        var tbody = document.createElement('tbody');
+        var r, c, tr, td, isIn, inFW, val;
+
+        for (r = 0; r < ps; r++) {
+            tr = document.createElement('tr');
+            for (c = 0; c < ps; c++) {
+                isIn = (r >= pad && r < pad + inSz && c >= pad && c < pad + inSz);
+                inFW = pos !== null &&
+                       r >= pos.inRow && r < pos.inRow + fSz &&
+                       c >= pos.inCol && c < pos.inCol + fSz;
+
+                td = document.createElement('td');
+                td.style.width    = cs + 'px';
+                td.style.height   = cs + 'px';
+                td.style.fontSize = fsz + 'px';
+
+                if (inFW) {
+                    td.className = isIn ? 'px-filt' : 'px-fpad';
+                    if (cs >= 22) td.textContent = isIn ? IMG[r - pad][c - pad] : '0';
+                } else if (isIn) {
+                    td.className = 'px-input';
+                    val = IMG[r - pad][c - pad];
+                    td.style.background = pixelColor(val);
+                } else {
+                    td.className = 'px-pad';
+                }
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        }
+
+        var tbl = document.getElementById('input-grid');
+        tbl.innerHTML = '';
+        tbl.appendChild(tbody);
+    }
+
+    /* ── Build a <tbody> for the filter kernel ───────── */
+    function renderFilter() {
+        var fSz   = S.filterSize;
+        var cs    = Math.min(52, Math.max(26, Math.floor(200 / fSz)));
+        var fsz   = Math.max(7, Math.floor(cs * 0.18));
+        var tbody = document.createElement('tbody');
+        var i, j, tr, td, v;
+
+        for (i = 0; i < fSz; i++) {
+            tr = document.createElement('tr');
+            for (j = 0; j < fSz; j++) {
+                v  = KERNEL[i][j];
+                td = document.createElement('td');
+                td.className   = 'px-kernel';
+                td.style.width  = cs + 'px';
+                td.style.height = cs + 'px';
+                td.style.fontSize = fsz + 'px';
+                td.textContent = v.toFixed(2);
+                td.style.background = 'rgba(251,191,36,' + (0.06 + v * 0.72) + ')';
+                td.style.color      = v > 0.25 ? '#fbbf24' : '#78490a';
+                td.style.border     = '1px solid rgba(251,191,36,' + (0.12 + v * 0.5) + ')';
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        }
+
+        var tbl = document.getElementById('filter-grid');
+        tbl.innerHTML = '';
+        tbl.appendChild(tbody);
+    }
+
+    /* ── Build a <tbody> for the output grid ─────────── */
+    function renderOutput() {
+        var o   = outSize();
+        var tbl = document.getElementById('output-grid');
+
+        if (o <= 0) {
+            tbl.innerHTML = '<tr><td style="color:#ef4444;font-size:0.78rem;padding:14px;text-align:center;">' +
+                'Output &le; 0<br>Reduce filter or add padding</td></tr>';
+            return;
+        }
+
+        var cs    = Math.min(44, Math.max(18, Math.floor(340 / o)));
+        var fsz   = Math.max(7, Math.floor(cs * 0.22));
+        var tbody = document.createElement('tbody');
+        var cur   = S.step;
+        var i, j, tr, td, idx;
+
+        for (i = 0; i < o; i++) {
+            tr = document.createElement('tr');
+            for (j = 0; j < o; j++) {
+                idx = i * o + j;
+                td  = document.createElement('td');
+                td.style.width    = cs + 'px';
+                td.style.height   = cs + 'px';
+                td.style.fontSize = fsz + 'px';
+
+                if (idx < cur - 1) {
+                    td.className = 'px-done';
+                } else if (idx === cur - 1) {
+                    td.className = 'px-cur';
+                    if (cs >= 22) td.textContent = '✓';
+                } else {
+                    td.className = 'px-empty';
+                }
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        }
+
+        tbl.innerHTML = '';
+        tbl.appendChild(tbody);
+    }
+
+    /* ── Update text labels & formula ────────────────── */
+    function updateFormula() {
+        var o = outSize();
+        document.getElementById('f-i').textContent = S.inputSize;
+        document.getElementById('f-p').textContent = S.padding;
+        document.getElementById('f-f').textContent = S.filterSize;
+        document.getElementById('f-s').textContent = S.stride;
+
+        var res = document.getElementById('f-r');
+        if (o > 0) {
+            res.innerHTML = '= ' + o + ' &times; ' + o + ' = ' + (o * o) +
+                            ' output' + (o * o !== 1 ? 's' : '');
+            res.style.color = '#5eead4';
+        } else {
+            res.innerHTML = '= &cross; Invalid &mdash; output &le; 0';
+            res.style.color = '#ef4444';
+        }
+    }
+
+    function updateLabels() {
+        var o  = outSize();
+        var ps = S.inputSize + 2 * S.padding;
+
+        var dIn = document.getElementById('d-input');
+        if (S.padding > 0) {
+            dIn.innerHTML = S.inputSize + '&times;' + S.inputSize +
+                ' <span style="color:#059669;font-size:0.72rem;">+pad</span>' +
+                ' &rarr; ' + ps + '&times;' + ps;
+        } else {
+            dIn.textContent = S.inputSize + '×' + S.inputSize;
+        }
+
+        document.getElementById('d-filter').textContent = S.filterSize + '×' + S.filterSize;
+        document.getElementById('d-output').textContent = o > 0 ? o + '×' + o : 'N/A';
+
+        document.getElementById('cv-inputSize').textContent  = S.inputSize;
+        document.getElementById('cv-padding').textContent    = S.padding;
+        document.getElementById('cv-filterSize').textContent = S.filterSize;
+        document.getElementById('cv-stride').textContent     = S.stride;
+
+        document.getElementById('step-ctr').textContent = S.step + ' / ' + totalSteps();
+
+        var sp = (S.filterSize - 1) / 2;
+        document.getElementById('same-pad-val').textContent =
+            (sp === Math.floor(sp)) ? sp : sp.toFixed(1);
+    }
+
+    function updateDesc() {
+        var el = document.getElementById('step-desc');
+        var o  = outSize();
+        if (o <= 0)        { el.textContent = 'Invalid parameters — no output'; return; }
+        if (S.step === 0)  { el.textContent = 'Press Play or Step to start the animation'; return; }
+        if (S.step >= totalSteps()) {
+            el.textContent = '✓ Complete — all ' + (o * o) + ' outputs computed';
+            return;
+        }
+        var pos = stepToPos(S.step - 1);
+        el.textContent =
+            'Filter window [' + pos.inRow + ':' + (pos.inRow + S.filterSize) +
+            ', ' + pos.inCol + ':' + (pos.inCol + S.filterSize) +
+            '] (padded coords) → output[' + pos.outRow + '][' + pos.outCol + ']';
+    }
+
+    function renderAll() {
+        updateFormula();
+        updateLabels();
+        renderInput();
+        renderFilter();
+        renderOutput();
+        updateDesc();
+    }
+
+    /* ── Animation control ───────────────────────────── */
+    function stepFwd() {
+        if (S.step >= totalSteps()) return;
+        S.step++;
+        renderInput();
+        renderOutput();
+        updateLabels();
+        updateDesc();
+    }
+
+    function stopAnim() {
+        S.playing = false;
+        if (S.timerId !== null) { clearInterval(S.timerId); S.timerId = null; }
+    }
+
+    function startAnim() {
+        S.playing = true;
+        var delay = Math.round(1100 / S.speed);
+        S.timerId = setInterval(function () {
+            stepFwd();
+            if (S.step >= totalSteps()) {
+                stopAnim();
+                document.getElementById('btn-play').textContent = '► Play';
+            }
+        }, delay);
+    }
+
+    function togglePlay() {
+        if (S.playing) {
+            stopAnim();
+            document.getElementById('btn-play').textContent = '► Play';
+        } else {
+            if (totalSteps() > 0 && S.step >= totalSteps()) {
+                S.step = 0;
+                renderAll();
+            }
+            startAnim();
+            document.getElementById('btn-play').textContent = '⏸ Pause';
+        }
+    }
+
+    function doReset() {
+        stopAnim();
+        S.step = 0;
+        document.getElementById('btn-play').textContent = '► Play';
+        renderAll();
+    }
+
+    function setParam(key, val) {
+        S[key] = val;
+        if (key === 'filterSize') KERNEL = makeKernel(val);
+        stopAnim();
+        S.step = 0;
+        document.getElementById('btn-play').textContent = '► Play';
+        renderAll();
+    }
+
+    /* ── Bind all events via addEventListener ─────────
+       No inline onclick / oninput — avoids Safari scope bugs */
+    document.getElementById('btn-play').addEventListener('click', togglePlay);
+    document.getElementById('btn-step').addEventListener('click', stepFwd);
+    document.getElementById('btn-reset').addEventListener('click', doReset);
+
+    document.getElementById('speed-sl').addEventListener('input', function () {
+        S.speed = parseInt(this.value, 10);
+        document.getElementById('speed-v').textContent = this.value;
+        if (S.playing) { stopAnim(); startAnim(); }
+    });
+    document.getElementById('speed-sl').addEventListener('change', function () {
+        S.speed = parseInt(this.value, 10);
+        document.getElementById('speed-v').textContent = this.value;
+    });
+
+    var SLIDERS = [
+        { id: 'sl-inputSize',  key: 'inputSize'  },
+        { id: 'sl-padding',    key: 'padding'     },
+        { id: 'sl-filterSize', key: 'filterSize'  },
+        { id: 'sl-stride',     key: 'stride'      }
+    ];
+
+    SLIDERS.forEach(function (item) {
+        var el = document.getElementById(item.id);
+        /* 'input' fires while dragging; 'change' fires on release (Safari fallback) */
+        el.addEventListener('input',  function () { setParam(item.key, parseInt(this.value, 10)); });
+        el.addEventListener('change', function () { setParam(item.key, parseInt(this.value, 10)); });
+    });
+
+    /* ── Boot ─────────────────────────────────────── */
+    renderAll();
+
+}());
+</script>
+</body>
+</html>
