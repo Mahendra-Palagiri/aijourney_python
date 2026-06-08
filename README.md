@@ -17,9 +17,9 @@ A motivation to learn AI using Python
 |       | Week 7 | Model selection & validation | Bias-variance tradeoff, cross-validation math | ✅ Done  | Feb 2026  |
 |       | Week 8 | Mini capstone | Consolidation of above | ✅ Done  | Feb 2026  |
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | ✅ Done | Mar 2026 |
-|       | Week 10 | PyTorch basics | Matrix multiplication, dot products | ✅ Done | May 2026 |
-|       | Week 11 | CNNs | Convolution operation math | 📅 To Do |  |
-|       | Week 12 | Mini capstone | Consolidation of above | 📅 To Do |  |
+|       | Week 10 | PyTorch basics | Tensor operations, autograd, training-loop mechanics | ✅ Done | May 2026 |
+|       | Week 11 | CNNs | Convolution operation math, CNN tensor shapes, pooling, CNN training workflow | ✅ Done | June 2026 |
+|       | Week 12 | Mini capstone | Baseline vs CNN comparison, PyTorch training/evaluation workflow, model defense | 🚧 InProgress |  |
 | **5 – Applied AI**  | Week 13 | NLP | Probability distributions, cosine similarity | 📅 To Do |  |
 |       | Week 14 | Computer vision | Image filter kernels, normalization | 📅 To Do |  |
 |       | Week 15 | Time series | Seasonal decomposition, autocorrelation | 📅 To Do |  |
@@ -256,24 +256,68 @@ A motivation to learn AI using Python
 </details>
 ------------------------------------------------------------------------------------------------------------
 <details>
-<summary>🔜 📕 Week 11: Convolutional Neural Networks \(CNNs\)</summary>
+<summary>✅ 📕 Week 11: Convolutional Neural Networks \(CNNs\)</summary>
 <br/>
 
-- **Status**: 🔜 Planned
-- **Topics Planned**:
+- **Status**: ✅ Completed
+- **Topics Covered**:
     - Why CNNs are useful for image and grid-like data
-    - Limitations of fully connected networks for images
-    - Image tensors and shape conventions: height, width, channels, and batches
-    - Convolution intuition: filters, kernels, feature maps, and local patterns
-    - Convolution math: sliding windows, dot products, stride, and padding
-    - Understanding channels: grayscale vs RGB inputs
-    - Pooling layers: max pooling and average pooling
-    - CNN architecture flow: convolution → activation → pooling → flatten → classifier
-    - Building a first small CNN in PyTorch
-    - Training and evaluating a CNN on a small image-style dataset
-    - Common CNN mistakes: wrong tensor shape, channel mismatch, flatten-size errors, and overfitting
-- **Time Frame**: May 2026
+    - Limitations of fully connected networks for raw images
+    - Image tensor shapes in PyTorch: `[N, C, H, W]`
+    - Batch size, channels, height, and width
+    - Grayscale vs RGB image tensors
+    - Convolution intuition: filters, kernels, sliding windows, local patches, and feature maps
+    - Convolution math: output shape, kernel size, stride, and padding
+    - Mermaid-based visual intuition for stride, padding, and CNN flow
+    - Pooling layers: max pooling, average pooling, and spatial downsampling
+    - CNN architecture flow: `Conv2d → ReLU → MaxPool2d → Flatten → Linear`
+    - Building a first small CNN in PyTorch using `nn.Module`
+    - Debugging CNN shapes step by step
+    - Training a tiny CNN workflow with logits, `CrossEntropyLoss`, optimizer, training loop, and evaluation
+    - Common CNN mistakes: wrong tensor shape, channel mismatch, flatten-size errors, wrong loss shape, and optimizer/loss confusion
+- **Days Spent**: 7
+- **Time Frame**: May & June 2026
 - **Week11 Content -->**: [▶️ Week11](docs/curriculum/4-DeepLearningFoundations/11.week11.md)
+
+</details>
+
+------------------------------------------------------------------------------------------------------------
+<details>
+<summary>🚧 📕 Week 12: Deep Learning Mini Capstone — Baseline vs CNN </summary>
+<br/>
+
+- **Status**: 🚧 InProgress
+- **Goal (What we will prove this week)**:
+    - We can combine Weeks 9–11 into one small end-to-end deep learning capstone.
+    - We can build, train, evaluate, and compare a fully connected baseline model against a CNN image classifier using PyTorch.
+    - We can explain why a CNN may perform better for image data instead of treating the architecture as magic.
+    - We can defend model choices such as architecture, loss function, optimizer, tensor shapes, evaluation approach, and final model selection.
+
+- **Topics Planned**:
+    - Frame an image-classification capstone problem clearly before coding
+    - Prepare image tensors, labels, train/validation/test splits, and `DataLoader`s
+    - Inspect batch shape and confirm image tensor dimensions before modeling
+    - Build a fully connected baseline model using flattening, linear layers, activations, logits, loss, and optimizer
+    - Train and evaluate the baseline using the Week 10 PyTorch workflow
+    - Build a CNN model using `Conv2d`, ReLU, pooling, flattening, and a final classifier layer
+    - Train and evaluate the CNN using the same evaluation discipline as the baseline
+    - Compare baseline vs CNN using loss, accuracy, validation behavior, and final test performance
+    - Explain model, loss, optimizer, tensor-shape, and architecture choices
+    - Write a final retrospective connecting Week 9 neural-network thinking, Week 10 PyTorch workflow, and Week 11 CNN architecture
+
+- **Mini Capstone Deliverables**:
+    - A clean project or notebook-style workflow with readable code blocks
+    - Dataset and tensor-shape inspection notes
+    - A working fully connected baseline model
+    - A working CNN model
+    - Training and validation metrics for both models
+    - A baseline vs CNN comparison table
+    - Final test evaluation for the selected model
+    - A short model defense covering architecture, shapes, loss, optimizer, results, risks, and next steps
+    - A retrospective covering what worked, what was confusing, and what to improve next
+
+- **Time Frame**: June 2026
+- **Week12 Content -->**: [▶️ Week12](docs/curriculum/4-DeepLearningFoundations/12.week12.md)
 
 </details>
 
