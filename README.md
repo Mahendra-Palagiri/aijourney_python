@@ -19,7 +19,7 @@ A motivation to learn AI using Python
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | ✅ Done | Mar 2026 |
 |       | Week 10 | PyTorch basics | Tensor operations, autograd, training-loop mechanics | ✅ Done | May 2026 |
 |       | Week 11 | CNNs | Convolution operation math, CNN tensor shapes, pooling, CNN training workflow | ✅ Done | June 2026 |
-|       | Week 12 | Mini capstone | Baseline vs CNN comparison, PyTorch training/evaluation workflow, model defense | 🚧 InProgress |  |
+|       | Week 12 | Mini capstone | End-to-end deep learning workflow, baseline comparison, PyTorch training/evaluation, model defense | 🚧 InProgress |  |
 | **5 – Applied AI**  | Week 13 | NLP | Probability distributions, cosine similarity | 📅 To Do |  |
 |       | Week 14 | Computer vision | Image filter kernels, normalization | 📅 To Do |  |
 |       | Week 15 | Time series | Seasonal decomposition, autocorrelation | 📅 To Do |  |
@@ -282,16 +282,17 @@ A motivation to learn AI using Python
 </details>
 
 ------------------------------------------------------------------------------------------------------------
+
 <details>
-<summary>🚧 📕 Week 12: Deep Learning Mini Capstone — Baseline vs CNN </summary>
+<summary>🚧 📕 Week 12: Deep Learning Mini Capstone — End-to-End Workflow </summary>
 <br/>
 
 - **Status**: 🚧 InProgress
 - **Goal (What we will prove this week)**:
-    - We can combine Weeks 9–11 into one small end-to-end deep learning capstone.
-    - We can build, train, evaluate, and compare a fully connected baseline model against a CNN image classifier using PyTorch.
-    - We can explain why a CNN may perform better for image data instead of treating the architecture as magic.
-    - We can defend model choices such as architecture, loss function, optimizer, tensor shapes, evaluation approach, and final model selection.
+    - We can combine Weeks 9–11 into one small end-to-end deep learning capstone workflow.
+    - We can frame an image-classification problem, prepare data, build models, train, evaluate, compare, and explain results using PyTorch.
+    - We can use a simple fully connected baseline first, then build an improved image-aware model and evaluate whether it adds value.
+    - We can defend model choices such as architecture, loss function, optimizer, tensor shapes, evaluation approach, comparison evidence, and final model selection.
 
 - **Topics Planned**:
     - Frame an image-classification capstone problem clearly before coding
@@ -299,21 +300,21 @@ A motivation to learn AI using Python
     - Inspect batch shape and confirm image tensor dimensions before modeling
     - Build a fully connected baseline model using flattening, linear layers, activations, logits, loss, and optimizer
     - Train and evaluate the baseline using the Week 10 PyTorch workflow
-    - Build a CNN model using `Conv2d`, ReLU, pooling, flattening, and a final classifier layer
-    - Train and evaluate the CNN using the same evaluation discipline as the baseline
-    - Compare baseline vs CNN using loss, accuracy, validation behavior, and final test performance
-    - Explain model, loss, optimizer, tensor-shape, and architecture choices
-    - Write a final retrospective connecting Week 9 neural-network thinking, Week 10 PyTorch workflow, and Week 11 CNN architecture
+    - Build an improved image-aware model using convolution, activation, pooling, flattening, and a final classifier layer
+    - Train and evaluate the improved model using the same evaluation discipline as the baseline
+    - Compare baseline vs improved model using loss, accuracy, validation behavior, and final test performance
+    - Explain model, loss, optimizer, tensor-shape, architecture, and comparison choices
+    - Write a final retrospective connecting Week 9 neural-network thinking, Week 10 PyTorch workflow, and Week 11 image-aware architecture
 
 - **Mini Capstone Deliverables**:
     - A clean project or notebook-style workflow with readable code blocks
     - Dataset and tensor-shape inspection notes
     - A working fully connected baseline model
-    - A working CNN model
+    - A working improved image-aware model
     - Training and validation metrics for both models
-    - A baseline vs CNN comparison table
+    - A baseline vs improved model comparison table
     - Final test evaluation for the selected model
-    - A short model defense covering architecture, shapes, loss, optimizer, results, risks, and next steps
+    - A short model defense covering architecture, shapes, loss, optimizer, results, risks, tradeoffs, and next steps
     - A retrospective covering what worked, what was confusing, and what to improve next
 
 - **Time Frame**: June 2026
