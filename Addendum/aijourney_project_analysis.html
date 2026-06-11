@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Journey — Project Analysis</title>
+<style>
+  :root{
+    --bg:#0f1117; --panel:#181b25; --panel2:#1f2330; --border:#2a2f3f;
+    --text:#e8eaf0; --muted:#9aa1b5; --accent:#6c9ef8; --green:#4ade80;
+    --amber:#fbbf24; --red:#f87171; --purple:#c084fc; --teal:#2dd4bf;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.6;}
+  .wrap{max-width:1100px; margin:0 auto; padding:40px 24px 80px;}
+  header{padding:48px 0 24px; border-bottom:1px solid var(--border); margin-bottom:32px;}
+  h1{font-size:2rem; font-weight:700;}
+  .subtitle{color:var(--muted); margin-top:8px; font-size:1.05rem;}
+  h2{font-size:1.45rem; margin:48px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--accent); display:flex; align-items:center; gap:10px;}
+  h3{font-size:1.1rem; margin:24px 0 10px; color:var(--accent);}
+  p{margin-bottom:12px;}
+  .muted{color:var(--muted);}
+  nav{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;}
+  nav a{color:var(--accent); text-decoration:none; font-size:.85rem; background:var(--panel); border:1px solid var(--border); padding:6px 12px; border-radius:20px;}
+  nav a:hover{background:var(--panel2);}
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin:20px 0;}
+  .card{background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:18px;}
+  .card .num{font-size:1.7rem; font-weight:700; color:var(--accent);}
+  .card .lbl{font-size:.82rem; color:var(--muted); margin-top:4px;}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:.92rem;}
+  th{text-align:left; background:var(--panel2); padding:10px 12px; border-bottom:2px solid var(--border); font-weight:600;}
+  td{padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top;}
+  tr:hover td{background:rgba(108,158,248,.04);}
+  .tag{display:inline-block; padding:2px 10px; border-radius:12px; font-size:.75rem; font-weight:600; white-space:nowrap;}
+  .tag.done{background:rgba(74,222,128,.15); color:var(--green);}
+  .tag.prog{background:rgba(251,191,36,.15); color:var(--amber);}
+  .tag.todo{background:rgba(248,113,113,.15); color:var(--red);}
+  .tag.info{background:rgba(108,158,248,.15); color:var(--accent);}
+  .panel{background:var(--panel); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:8px; padding:18px 20px; margin:16px 0;}
+  .panel.good{border-left-color:var(--green);}
+  .panel.supp{border-left-color:var(--amber);}
+  .panel.intro{border-left-color:var(--purple);}
+  .panel h4{margin-bottom:6px; font-size:1rem;}
+  .panel .why{color:var(--muted); font-size:.9rem;}
+  code{background:var(--panel2); padding:2px 7px; border-radius:5px; font-size:.85em; font-family:'SF Mono',Menlo,Consolas,monospace; color:var(--teal);}
+  .tree{background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:20px 24px; font-family:'SF Mono',Menlo,Consolas,monospace; font-size:.83rem; line-height:1.75; overflow-x:auto; white-space:pre;}
+  .tree .dir{color:var(--accent); font-weight:600;}
+  .tree .note{color:var(--muted); font-style:italic;}
+  .tree .warn{color:var(--amber);}
+  .flow{display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin:20px 0;}
+  .flow .step{flex:1 1 150px; background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:14px; position:relative;}
+  .flow .step .ph{font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
+  .flow .step .tt{font-weight:600; margin:4px 0; font-size:.92rem;}
+  .flow .step .dd{font-size:.8rem; color:var(--muted);}
+  .bar{height:6px; border-radius:3px; margin-top:10px; background:var(--panel2); overflow:hidden;}
+  .bar i{display:block; height:100%; border-radius:3px;}
+  .pill-row{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0;}
+  .pill{background:var(--panel2); border:1px solid var(--border); border-radius:14px; padding:4px 12px; font-size:.8rem; color:var(--text);}
+  .grade{font-weight:700; font-size:1.05rem;}
+  .g-a{color:var(--green);} .g-b{color:var(--teal);} .g-c{color:var(--amber);} .g-d{color:var(--red);}
+  .roadmap td:first-child{white-space:nowrap; font-weight:600; color:var(--purple);}
+  footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--border); color:var(--muted); font-size:.85rem;}
+  .legend{display:flex; gap:18px; flex-wrap:wrap; font-size:.85rem; color:var(--muted); margin:8px 0 0;}
+  .dot{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>🐍 AI Journey — Project Review &amp; Gap Analysis</h1>
+  <div class="subtitle">A full read of <code>aijourney_python</code>: structure, learning flow, content quality, strengths, areas to supplement, and areas to introduce. Prepared June 11, 2026 · Read-only review — no repo files were touched.</div>
+</header>
+
+<nav>
+  <a href="#glance">At a Glance</a>
+  <a href="#structure">Structure</a>
+  <a href="#flow">Learning Flow</a>
+  <a href="#content">Content Review</a>
+  <a href="#good">✅ What's Good</a>
+  <a href="#supplement">🟡 Supplement</a>
+  <a href="#introduce">🟣 Introduce</a>
+  <a href="#roadmap">Addendum Roadmap</a>
+</nav>
+
+<!-- ============================ AT A GLANCE ============================ -->
+<h2 id="glance">📊 At a Glance</h2>
+<div class="cards">
+  <div class="card"><div class="num">11 mo</div><div class="lbl">Journey so far (Jul 2025 → Jun 2026)</div></div>
+  <div class="card"><div class="num">127</div><div class="lbl">Git commits, every month active</div></div>
+  <div class="card"><div class="num">11 / 20</div><div class="lbl">Weeks completed (week 12 in progress)</div></div>
+  <div class="card"><div class="num">~80</div><div class="lbl">Python files · ~12,300 lines</div></div>
+  <div class="card"><div class="num">31+</div><div class="lbl">Theory markdown lessons</div></div>
+  <div class="card"><div class="num">4 / 6</div><div class="lbl">Phases with real content</div></div>
+</div>
+<p><strong>Verdict in one line:</strong> a disciplined, depth-first, mechanics-focused self-curriculum that has carried you from <em>print("Hello")</em> to building and defending CNNs in PyTorch — with the strongest asset being <em>how</em> it teaches (math intuition before libraries, capstones with model-defense write-ups), and the main gaps being self-testing infrastructure that stopped at week 3, the unfinished week-12 capstone, and the entirely empty Phases 5–6.</p>
+
+<!-- ============================ STRUCTURE ============================ -->
+<h2 id="structure">🗂️ Structure</h2>
+<p>The repo is organized as <strong>phase → week → daily numbered files</strong>, with a parallel <code>docs/</code> tree for curriculum plans, question banks, and answer sheets, and a shared <code>data/</code> folder. The README is the master index: a program-overview table with status, completion months, and per-week expandable summaries linking into <code>docs/curriculum/</code>.</p>
+
+<div class="tree"><span class="dir">aijourney_python/</span>
+├── README.md                         <span class="note">← master roadmap + status tracker (excellent)</span>
+├── requirements.txt · notes.txt · .venv/
+├── <span class="dir">1-PythonFundations/</span>               <span class="note">weeks 1–2 · 16 py · 980 lines</span>
+│   ├── week1/  variables, functions, student.py + testbench, day5 utils + <span class="warn">test_utils.py (only test file in repo)</span>
+│   └── week2/  numpy basics/advanced, pandas, viz, quiz, challenge, miniproject
+├── <span class="dir">2-DataAnalysis_Visualization/</span>     <span class="note">weeks 3–4 · 15 py · 2,929 lines</span>
+│   ├── week3/  ml_intro, pipeline, auc_roc, compare_models, hyperparam tuning + committed plots/diagrams
+│   └── week4/  7 numbered lessons: missing data → scaling → pipelines → encoding → selection → multicollinearity
+├── <span class="dir">3-MLFoundations/</span>                  <span class="note">weeks 5–8 · 29 py · 6,350 lines</span>
+│   ├── week5/  logistic regression deep dive (7 numbered days)
+│   ├── week6/  regression from scratch → OLS → diagnostics → influence → regularization
+│   ├── week7/  bias–variance, leakage, CV mechanics, nested CV, model comparison, capstone defense
+│   └── week8/  <span class="warn">★ mini-capstone:</span> src/ (config, pipeline, train, tune, evaluate, final_eval) + reports/ (model_defense.md)
+├── <span class="dir">4-DeepLearningFoundations/</span>        <span class="note">weeks 9–12 · 20 py · 29 md · 2,010 lines</span>
+│   ├── week9/   NN theory in markdown (why NNs, anatomy, forward prop, loss/GD, backprop, training loop) + tiny PyTorch NN
+│   ├── week10/  PyTorch: paired N.0.theory.md + N.1.practice.py  <span class="note">← best format in the repo</span>
+│   ├── week11/  CNNs: same paired format + interactive convolution_visualizer.html
+│   └── week12/  <span class="warn">capstone scaffolded: framing.md written (271 lines), all 13 other files are 0 bytes</span>
+├── <span class="dir">data/</span>                             <span class="note">week2, week4 (titanic), week5 (+ synthetic data generator)</span>
+└── <span class="dir">docs/</span>
+    ├── curriculum/   12 week-plan md files <span class="warn">+ empty 5-AppliedAI/ and 6-Deployment_FinalCapstone/ folders</span>
+    ├── questionbanks/  qb-week1, qb-week2 <span class="warn">· qb-week3 is an empty stub · nothing after week 3</span>
+    ├── answersheet/    finalref/ + mine/ <span class="warn">· weeks 1–2 only</span>
+    └── misc/           cheat-sheets.md (20 lines) · tools-setup.md (26 lines) <span class="warn">· both very thin</span></div>
+
+<p class="muted">Naming is consistent within each phase (numbered daily files), and the numbering convention visibly matured: phase 3 uses <code>N.Topic.py</code>, phase 4 evolved to <code>N.0.theory.md</code> + <code>N.1.practice.py</code> pairs — the strongest pattern in the repo.</p>
+
+<!-- ============================ FLOW ============================ -->
+<h2 id="flow">🔄 Learning Flow</h2>
+<p>The pedagogical arc is deliberate and sound: <strong>syntax → data handling → ML workflow → preprocessing → one model family at a time, in depth → validation theory → consolidation capstone → repeat the same cycle for deep learning</strong>. Each phase ends with a capstone that forces consolidation, and each model family is opened from first principles (from-scratch gradient descent before sklearn, manual backprop intuition before autograd).</p>
+
+<div class="flow">
+  <div class="step"><div class="ph">Phase 1 · W1–2</div><div class="tt">Python Foundations</div><div class="dd">Syntax, functions, OOP, NumPy, Pandas, viz</div><div class="bar"><i style="width:100%;background:var(--green)"></i></div></div>
+  <div class="step"><div class="ph">Phase 2 · W3–4</div><div class="tt">Data Analysis &amp; ML Intro</div><div class="dd">sklearn workflow, preprocessing, feature engineering</div><div class="bar"><i style="width:100%;background:var(--green)"></i></div></div>
+  <div class="step"><div class="ph">Phase 3 · W5–8</div><div class="tt">ML Foundations</div><div class="dd">Classification, regression, validation, capstone</div><div class="bar"><i style="width:100%;background:var(--green)"></i></div></div>
+  <div class="step"><div class="ph">Phase 4 · W9–12</div><div class="tt">Deep Learning</div><div class="dd">NN theory, PyTorch, CNNs, capstone</div><div class="bar"><i style="width:85%;background:var(--amber)"></i></div></div>
+  <div class="step"><div class="ph">Phase 5 · W13–16</div><div class="tt">Applied AI</div><div class="dd">NLP, CV, time series, capstone</div><div class="bar"><i style="width:0%;background:var(--red)"></i></div></div>
+  <div class="step"><div class="ph">Phase 6 · W17–20</div><div class="tt">Deployment &amp; Capstone</div><div class="dd">Serving, MLOps, final project</div><div class="bar"><i style="width:0%;background:var(--red)"></i></div></div>
+</div>
+<div class="legend"><span><span class="dot" style="background:var(--green)"></span>Complete</span><span><span class="dot" style="background:var(--amber)"></span>In progress (week 12 scaffolded, content pending)</span><span><span class="dot" style="background:var(--red)"></span>Not started</span></div>
+
+<p>Two recurring "rituals" give the flow its strength: <strong>(1) the capstone discipline</strong> — week 8 and week 12 both demand a leakage-safe protocol, baseline-vs-candidate comparison, single-use holdout, and a written model defense; <strong>(2) the daily theory→practice rhythm</strong> — each day states topics and learning goals up front, then proves them in runnable code.</p>
+
+<!-- ============================ CONTENT ============================ -->
+<h2 id="content">📚 Content Review by Phase</h2>
+
+<table>
+  <tr><th style="width:18%">Phase</th><th>What the content actually delivers</th><th style="width:12%">Depth</th></tr>
+  <tr>
+    <td><strong>1 · Python</strong><br><span class="tag done">Complete</span></td>
+    <td>Annotated scripts covering syntax, data structures (with good when-to-use-what comparisons of list/tuple/dict), functions, exceptions, a student-class exercise with a test bench, and a real <code>pytest</code>-style test file (week1/day5). Week 2 adds NumPy (basics + broadcasting), Pandas filtering, matplotlib/seaborn, plus a quiz, challenge, and mini-project — good self-assessment habits from the start.</td>
+    <td><span class="grade g-b">Solid intro</span></td>
+  </tr>
+  <tr>
+    <td><strong>2 · Data Analysis</strong><br><span class="tag done">Complete</span></td>
+    <td>Week 3 is a broad ML-workflow tour (Iris, KNN, train/test split, metrics, ROC/AUC, model comparison, hyperparameter tuning) with committed visual artifacts (ROC curves, feature-importance plots, a mermaid model-selector). Week 4 is a strong, well-sequenced preprocessing series — the missing-data lesson opens with the MCAR/MAR/MNAR taxonomy, exactly the mechanics-first style you favor, then walks transformation, encoding, selection, and multicollinearity (VIF).</td>
+    <td><span class="grade g-b">Strong</span></td>
+  </tr>
+  <tr>
+    <td><strong>3 · ML Foundations</strong><br><span class="tag done">Complete</span></td>
+    <td>The heart of the repo (6,350 lines). Week 5: logistic regression from sigmoid/odds/log-odds up through regularization and tuning. Week 6: linear regression <em>implemented from scratch with gradient descent</em>, then statsmodels OLS, residual diagnostics, Cook's distance/leverage, ridge-vs-influence-removal. Week 7: genuinely advanced validation theory — nested CV, time-series splits, CV mean-vs-variance interpretation, leakage taxonomy. Week 8 capstone has a professional layout: <code>src/</code> modules with dataclasses, frozen config, leakage-safe ColumnTransformer pipelines, and a model-defense report citing CV protocol and a single-use holdout (LogReg ROC-AUC 0.864 ± 0.022).</td>
+    <td><span class="grade g-a">Excellent</span></td>
+  </tr>
+  <tr>
+    <td><strong>4 · Deep Learning</strong><br><span class="tag prog">Week 12 open</span></td>
+    <td>Week 9 teaches NN theory in prose markdown (why NNs exist → anatomy → forward prop → loss/GD → backprop &amp; chain rule → training dynamics) before any framework. Weeks 10–11 introduce the paired <code>theory.md + practice.py</code> format: tensors, autograd, <code>nn.Module</code>, DataLoaders, full workflow; then CNN intuition, [N,C,H,W] shapes, stride/padding math with an interactive HTML convolution visualizer, pooling, and a complete CNN training loop with a "common mistakes" catalogue. Week 12 has an excellent 271-line framing document but all 13 implementation files are empty placeholders.</td>
+    <td><span class="grade g-a">Excellent (unfinished)</span></td>
+  </tr>
+  <tr>
+    <td><strong>Docs &amp; self-testing</strong></td>
+    <td>Curriculum md files for all 12 active weeks (growing richer over time: week 1 is 81 lines, week 12 is 665). Question banks with easy/medium/tricky tiers and the great "my attempt vs final reference" answer-sheet pattern — but coverage stops at week 2 (week 3's QB is an empty stub). Cheat-sheets and tools-setup are minimal placeholders.</td>
+    <td><span class="grade g-c">Uneven</span></td>
+  </tr>
+</table>
+
+<!-- ============================ GOOD ============================ -->
+<h2 id="good">✅ Where It's Good — Keep Doing This</h2>
+
+<div class="panel good"><h4>1 · Mechanics-first pedagogy, consistently applied</h4>
+<p class="why">Every model family is opened from first principles: regression is implemented from scratch with manual gradient descent before touching sklearn; backprop and the chain rule are explained in prose before autograd; convolution output-size math is derived before <code>nn.Conv2d</code>. This matches a deep-understanding learning style and is the single most valuable property of the repo — it compounds.</p></div>
+
+<div class="panel good"><h4>2 · Capstone discipline with model-defense write-ups</h4>
+<p class="why">Week 8 is structured like a real project (src modules, frozen config dataclass, pipelines inside CV folds, explicit leakage removal of the <code>alive</code> column, single-use holdout) and the defense report justifies metric choice, protocol, and risks. Very few self-taught curricula force this level of honesty. Week 12 repeats the pattern for deep learning.</p></div>
+
+<div class="panel good"><h4>3 · The paired theory.md + practice.py format (weeks 10–12)</h4>
+<p class="why">Phase 4's <code>N.0.theory.md / N.1.practice.py</code> convention cleanly separates "understand" from "do", renders well on GitHub, and each lesson opens with topics + measurable learning goals. This is the best format in the repo and the template any addendum should adopt.</p></div>
+
+<div class="panel good"><h4>4 · README as a living tracker</h4>
+<p class="why">Program-overview table with per-week status, math skills introduced, and completion months; collapsible week summaries deep-linking into curriculum docs. Anyone (including future-you) can reconstruct the journey in five minutes.</p></div>
+
+<div class="panel good"><h4>5 · Sustained cadence and honest git history</h4>
+<p class="why">127 commits across 12 consecutive months with descriptive messages that double as a learning diary ("Week 11 Day 2 — how providers might provide data with missing dimensions and how we add them back"). The journey survived slow months (Apr 2026: 2 commits) without dying — that resilience is worth more than any single topic.</p></div>
+
+<div class="panel good"><h4>6 · Self-testing instinct &amp; reproducibility touches</h4>
+<p class="why">Question banks with difficulty tiers, "mine vs final reference" answers, week-2 quiz/challenge/miniproject, fixed seeds, a cached Titanic CSV for reproducibility, a synthetic-data generator, pinned requirements.txt, and committed visual evidence (ROC curves, diagnostics plots, an interactive convolution visualizer).</p></div>
+
+<!-- ============================ SUPPLEMENT ============================ -->
+<h2 id="supplement">🟡 Areas to Supplement — Exists, But Thin</h2>
+<p class="muted">These extend things the repo already does. All are addendum-project candidates; nothing here requires touching existing files.</p>
+
+<div class="panel supp"><h4>S1 · Question banks &amp; answer sheets stopped at week 2</h4>
+<p class="why"><strong>Gap:</strong> qb-week3.md is an empty stub; weeks 4–12 have no question banks at all, and answer sheets cover only weeks 1–2. <strong>Why it matters:</strong> the easy/medium/tricky + "my attempt vs reference" loop is your best retention tool, and it's missing precisely for the hardest material (regularization, CV math, backprop, CNN shapes). <strong>Addendum:</strong> one QB per completed week, 15 questions + 5 challenges each, same folder pattern under the new project.</p></div>
+
+<div class="panel supp"><h4>S2 · Finish the week-12 capstone</h4>
+<p class="why"><strong>Gap:</strong> framing.md is excellent, but all 13 implementation files (dataset setup → baseline → CNN → comparison → retrospective) are 0 bytes. <strong>Why it matters:</strong> the capstone is the proof that weeks 9–11 consolidated; phases 5–6 build on it. This is the highest-priority single item — finish before starting anything new.</p></div>
+
+<div class="panel supp"><h4>S3 · Retro-fit the theory.md + practice.py format notes for phases 1–3</h4>
+<p class="why"><strong>Gap:</strong> weeks 1–8 embed theory in giant Python docstrings — unrenderable, unsearchable on GitHub, and hard to skim for revision. <strong>Why it matters:</strong> when you revise (and you will, before interviews or phase 6), markdown summaries are 10× faster to review. <strong>Addendum:</strong> distilled one-page "revision sheets" per week in the new project — not edits to the originals.</p></div>
+
+<div class="panel supp"><h4>S4 · Cheat-sheets are a 20-line placeholder</h4>
+<p class="why"><strong>Gap:</strong> cheat-sheets.md covers only venv/pip; nothing for NumPy idioms, Pandas patterns, sklearn API conventions, or the PyTorch shape rules you carefully derived. <strong>Why it matters:</strong> you re-derive [N,C,H,W] and output-size formulas every time you forget them. <strong>Addendum:</strong> one cheat sheet per library, built from your own lesson notes (they're already written — it's a harvesting job).</p></div>
+
+<div class="panel supp"><h4>S5 · Testing habit never grew beyond week 1</h4>
+<p class="why"><strong>Gap:</strong> exactly one test file in the repo (week1/day5/test_utils.py). The week-8 capstone src modules — the most reusable code you've written — have no tests. <strong>Why it matters:</strong> testing ML pipelines (schema checks, shape assertions, leakage guards) is an industry-standard skill and a natural fit for your mechanics-first style. <strong>Addendum:</strong> a "pytest for ML" week that writes tests against week-8 and week-12 code.</p></div>
+
+<div class="panel supp"><h4>S6 · Tree-based models used but never opened up</h4>
+<p class="why"><strong>Gap:</strong> RandomForest and GradientBoosting appear as week-8 candidates and SVM/RF were "topics planned" in week 4, but no model family after logistic/linear regression got the deep-dive treatment — no decision-tree split math (Gini/entropy), no bagging-vs-boosting mechanics, XGBoost mentioned only once in passing. <strong>Why it matters:</strong> gradient boosting is still the default winner on tabular data; you currently use it as a black box, which is contrary to the project's own philosophy. <strong>Addendum:</strong> a "trees &amp; ensembles deep dive" week in the same style as weeks 5–6.</p></div>
+
+<div class="panel supp"><h4>S7 · Statistics &amp; probability remain implicit</h4>
+<p class="why"><strong>Gap:</strong> p-values and confidence intervals appear in week 6 (statsmodels) and "basic probability" in week 3, but there's no dedicated treatment of distributions, hypothesis testing, sampling, or Bayes' rule. <strong>Why it matters:</strong> phase 5 (NLP cosine similarity, time-series autocorrelation) and any A/B-testing or uncertainty work assume these. <strong>Addendum:</strong> a compact stats-foundations module, math-first like week 9.</p></div>
+
+<div class="panel supp"><h4>S8 · Small housekeeping (record as errata, don't fix in place)</h4>
+<p class="why">Since the current repo is frozen: (a) recurring typos in folder/file names — <code>PythonFundations</code>, <code>InerpretingCoefficients</code>, <code>CrossValdiationMechanics</code>, <code>challange</code>; (b) week-8 README references <code>projects/week8_capstone/</code> but content lives in <code>3-MLFoundations/week8/</code>; (c) empty <code>5-AppliedAI/</code> and <code>6-Deployment_FinalCapstone/</code> curriculum folders. An errata.md in the addendum project keeps the record without touching anything.</p></div>
+
+<!-- ============================ INTRODUCE ============================ -->
+<h2 id="introduce">🟣 Areas to Introduce — Not Present Yet</h2>
+<p class="muted">Ordered roughly by how directly each unblocks your planned phases 5–6, then by 2026 job-market relevance.</p>
+
+<div class="panel intro"><h4>N1 · Phase 5 as planned: NLP, Computer Vision, Time Series <span class="tag todo">already on roadmap</span></h4>
+<p class="why">Weeks 13–16 exist only as README rows. The plan (tokenization/embeddings/cosine similarity; image kernels/normalization; seasonal decomposition/autocorrelation) is sound but was written in 2025 — see N2 for what to add to it.</p></div>
+
+<div class="panel intro"><h4>N2 · Transformers, attention &amp; the LLM era <span class="tag info">biggest content gap</span></h4>
+<p class="why">There is no mention of attention, transformers, embeddings-as-representation, fine-tuning, or LLM APIs anywhere in the repo — in 2026 this is the most consequential omission. Your week-9 style is the perfect vehicle: attention math from scratch (queries/keys/values, softmax weighting), positional encoding, then a tiny transformer in PyTorch, then Hugging Face for practical work, then prompting/RAG/fine-tuning as applied layers. Recommend folding this into Phase 5's NLP slot and expanding that week to two.</p></div>
+
+<div class="panel intro"><h4>N3 · Unsupervised learning</h4>
+<p class="why">Zero coverage of clustering (k-means, DBSCAN, hierarchical), dimensionality reduction (PCA/t-SNE/UMAP), or anomaly detection. PCA in particular is foundational — it links your linear-algebra intuitions to feature engineering and to embedding visualization you'll want in NLP. A one-week module fits naturally before phase 5.</p></div>
+
+<div class="panel intro"><h4>N4 · Deep-learning regularization &amp; transfer learning toolkit</h4>
+<p class="why">Dropout is mentioned in passing as an "early regularization idea" but never implemented; batch norm, data augmentation, LR schedulers, early stopping, and transfer learning (fine-tuning pretrained ResNets) are absent. These are the difference between toy CNNs and usable ones, and transfer learning is a prerequisite for the phase-5 CV week.</p></div>
+
+<div class="panel intro"><h4>N5 · Sequence models bridge: RNN → LSTM → why attention won</h4>
+<p class="why">Phase 5's time-series and NLP weeks both benefit from understanding recurrence and its failure modes (vanishing gradients — which connects beautifully back to your week-9 chain-rule work). Even one compact week makes the transformer motivation land mechanically rather than by assertion.</p></div>
+
+<div class="panel intro"><h4>N6 · Deployment &amp; MLOps substance for Phase 6 <span class="tag todo">already on roadmap</span></h4>
+<p class="why">Weeks 17–18 are empty. Concrete suggestion: serve the week-12 model with FastAPI; containerize with Docker; add experiment tracking (MLflow or W&amp;B) retroactively to week-8/12 training scripts; model registry, monitoring/drift basics, and a simple CI check. Pairs directly with S5 (testing).</p></div>
+
+<div class="panel intro"><h4>N7 · Model interpretability &amp; responsible AI</h4>
+<p class="why">You have feature importance plots, but no SHAP/LIME, permutation importance, partial-dependence, calibration curves, or fairness checks. Given the project's "model defense" ethos, interpretability is its natural extension — defenses become stronger when you can explain individual predictions.</p></div>
+
+<div class="panel intro"><h4>N8 · SQL &amp; data-access fundamentals</h4>
+<p class="why">Every dataset so far arrived as a tidy CSV. Real pipelines start in databases. A short module (SQLite + pandas <code>read_sql</code>, joins, window functions) closes the most common practical gap for applied work and interviews.</p></div>
+
+<div class="panel intro"><h4>N9 · Linear algebra companion track</h4>
+<p class="why">The README tracks "math skills introduced" per week — a great instinct — but eigenvalues/eigenvectors, SVD, and matrix decompositions never appear, and they underpin PCA (N3), attention (N2), and embeddings. A lightweight "math sidebar" series in week-9 prose style would complete the math spine.</p></div>
+
+<!-- ============================ ROADMAP ============================ -->
+<h2 id="roadmap">🗺️ Suggested Addendum Roadmap</h2>
+<p>Sequenced so each item unblocks the next, keeping your proven one-week rhythm and the phase-4 paired-file format. Existing repo stays frozen; everything lands in the new addendum project.</p>
+
+<table class="roadmap">
+  <tr><th style="width:14%">Order</th><th style="width:30%">Item</th><th>Rationale</th></tr>
+  <tr><td>0 · Now</td><td>Finish week 12 capstone (S2)</td><td>Closes Phase 4; everything downstream assumes it. Highest priority.</td></tr>
+  <tr><td>1</td><td>Consolidation pack (S1, S3, S4)</td><td>Question banks for weeks 3–12, revision sheets, real cheat sheets. Cheap, high retention value, perfect warm-down after the capstone.</td></tr>
+  <tr><td>2</td><td>Trees &amp; ensembles deep dive (S6) + interpretability (N7)</td><td>Completes the classical-ML story with the style the repo is best at; SHAP extends your model-defense ritual.</td></tr>
+  <tr><td>3</td><td>Unsupervised week (N3) + stats/linear-algebra sidebars (S7, N9)</td><td>PCA/clustering plus the math spine — direct prerequisites for embeddings and time series.</td></tr>
+  <tr><td>4</td><td>Phase 5, upgraded (N1 + N2 + N5)</td><td>NLP expanded to include attention/transformers/LLM tooling; CV week gains transfer learning (N4); time series gains the RNN bridge.</td></tr>
+  <tr><td>5</td><td>Phase 6, upgraded (N6 + S5 + N8)</td><td>FastAPI/Docker serving of the week-12 model, MLflow tracking, pytest-for-ML, SQL module, then the final capstone applying all of it.</td></tr>
+</table>
+
+<p class="panel" style="border-left-color:var(--teal)"><strong>One structural recommendation for the addendum:</strong> adopt the week-10/11 conventions as law — paired <code>N.0.theory.md / N.1.practice.py</code> files, topics + learning goals header, a "common mistakes" section per week, a question bank per week, and a capstone with model-defense write-up per phase. The current repo discovered this format by iteration; the addendum gets it from day one.</p>
+
+<footer>
+  Review based on full repository scan: 127 commits (2025-07-03 → June 2026), ~80 Python files (~12,300 lines), 31 lesson markdown files, docs tree, and data folder. No files in <code>aijourney_python</code> were modified. · Prepared by Claude · June 11, 2026
+</footer>
+
+</div>
+</body>
+</html>
