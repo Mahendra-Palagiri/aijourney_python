@@ -75,6 +75,8 @@ test_loader = DataLoader(
     shuffle=False
 )
 
+print("")
+print(f"{'='*30} OUTPUT {'='*30}" )
 # =============================================================================
 # Dataset Size Checks
 # =============================================================================
@@ -124,3 +126,36 @@ print("One label:        integer from 0 to 9")
 print("One label batch:  [64]")
 print("Baseline input:   [64, 1, 28, 28] -> [64, 784]")
 print("Improved input:   [64, 1, 28, 28] stays image-shaped longer")
+
+print("")
+
+'''============================== OUTPUT ==============================
+Train size: 48000
+Validation size: 12000
+Test size: 10000
+Train size type: <class 'int'>
+Validation size type: <class 'int'>
+
+Images shape: torch.Size([64, 1, 28, 28])
+Labels shape: torch.Size([64])
+Image dtype: torch.float32
+Label dtype: torch.int64
+
+Single image shape: torch.Size([1, 28, 28])
+Single label: 9
+
+Class names:
+['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
+Sample label mapping:
+Label index: 9
+Class name: Ankle boot
+
+Shape summary:
+One image:        [1, 28, 28]
+One batch:        [64, 1, 28, 28]
+One label:        integer from 0 to 9
+One label batch:  [64]
+Baseline input:   [64, 1, 28, 28] -> [64, 784]
+Improved input:   [64, 1, 28, 28] stays image-shaped longer
+'''
