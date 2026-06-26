@@ -23,6 +23,10 @@ torch.manual_seed(RANDOM_SEED)
 # =============================================================================
 transform = transforms.ToTensor()
 
+FashionMNIST.mirrors = [
+    "https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion/"
+]
+
 train_full = FashionMNIST(
     root="4-DeepLearningFoundations/week12/data",
     train=True,
@@ -102,3 +106,40 @@ print("\nOptimizer:", optimizer)
 
 print("")
 
+'''======================================== OUTPUT ========================================
+
+Baseline_Model : BaselineNN(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (network): Sequential(
+    (0): Linear(in_features=784, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=128, out_features=10, bias=True)
+  )
+)
+
+Images Shape: torch.Size([64, 1, 28, 28])
+Labels Shape: torch.Size([64])
+
+Logits Shape: torch.Size([64, 10])
+
+Predictions shape: torch.Size([64])
+First 10 predictions: tensor([8, 8, 8, 5, 8, 9, 8, 8, 5, 8])
+First 10 labels: tensor([9, 8, 8, 5, 2, 8, 9, 4, 1, 5])
+
+Loss before training: 2.2682154178619385
+
+Optimizer: Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+)
+'''

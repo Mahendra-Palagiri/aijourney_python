@@ -25,6 +25,10 @@ torch.manual_seed(RANDOM_SEED) #makes PyTorch’s random choices more repeatable
 # =============================================================================
 transform = transforms.ToTensor()
 
+FashionMNIST.mirrors = [
+    "https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion/"
+]
+
 train_full = FashionMNIST(
     root="4-DeepLearningFoundations/week12/data",
     train=True,
