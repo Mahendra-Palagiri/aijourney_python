@@ -19,8 +19,8 @@ A motivation to learn AI using Python
 | **4 – Deep Learning Foundations**  | Week 9 | Neural networks basics | Derivatives, chain rule, gradient descent math | ✅ Done | Mar 2026 |
 |       | Week 10 | PyTorch basics | Tensor operations, autograd, training-loop mechanics | ✅ Done | May 2026 |
 |       | Week 11 | CNNs | Convolution operation math, CNN tensor shapes, pooling, CNN training workflow | ✅ Done | June 2026 |
-|       | Week 12 | Mini capstone | End-to-end deep learning workflow, baseline comparison, PyTorch training/evaluation, model defense | 🚧 InProgress |  |
-| **5 – Applied AI**  | Week 13 | NLP | Probability distributions, cosine similarity | 📅 To Do |  |
+|       | Week 12 | Mini capstone | End-to-end deep learning workflow, baseline comparison, PyTorch training/evaluation, model defense | ✅ Done | June 2026 |
+| **5 – Applied AI**  | Week 13 | NLP | Text representation, tokenization, embeddings, cosine similarity, NLP model workflow | 🚧 InProgress |  |
 |       | Week 14 | Computer vision | Image filter kernels, normalization | 📅 To Do |  |
 |       | Week 15 | Time series | Seasonal decomposition, autocorrelation | 📅 To Do |  |
 |       | Week 16 | Mini capstone | Consolidation of above | 📅 To Do |  |
@@ -284,17 +284,17 @@ A motivation to learn AI using Python
 ------------------------------------------------------------------------------------------------------------
 
 <details>
-<summary>🚧 📕 Week 12: Deep Learning Mini Capstone — End-to-End Workflow </summary>
+<summary>✅ 📕 Week 12: Deep Learning Mini Capstone — End-to-End Workflow </summary>
 <br/>
 
-- **Status**: 🚧 InProgress
+- **Status**: ✅ Completed
 - **Goal (What we will prove this week)**:
     - We can combine Weeks 9–11 into one small end-to-end deep learning capstone workflow.
     - We can frame an image-classification problem, prepare data, build models, train, evaluate, compare, and explain results using PyTorch.
     - We can use a simple fully connected baseline first, then build an improved image-aware model and evaluate whether it adds value.
     - We can defend model choices such as architecture, loss function, optimizer, tensor shapes, evaluation approach, comparison evidence, and final model selection.
 
-- **Topics Planned**:
+- **Topics Covered**:
     - Frame an image-classification capstone problem clearly before coding
     - Prepare image tensors, labels, train/validation/test splits, and `DataLoader`s
     - Inspect batch shape and confirm image tensor dimensions before modeling
@@ -306,7 +306,7 @@ A motivation to learn AI using Python
     - Explain model, loss, optimizer, tensor-shape, architecture, and comparison choices
     - Write a final retrospective connecting Week 9 neural-network thinking, Week 10 PyTorch workflow, and Week 11 image-aware architecture
 
-- **Mini Capstone Deliverables**:
+- **Mini Capstone Deliverables Completed**:
     - A clean project or notebook-style workflow with readable code blocks
     - Dataset and tensor-shape inspection notes
     - A working fully connected baseline model
@@ -316,9 +316,52 @@ A motivation to learn AI using Python
     - Final test evaluation for the selected model
     - A short model defense covering architecture, shapes, loss, optimizer, results, risks, tradeoffs, and next steps
     - A retrospective covering what worked, what was confusing, and what to improve next
+    - Final evidence-based conclusion: the baseline model outperformed the improved image-aware model in this experiment, so the baseline was selected for this capstone run
 
 - **Time Frame**: June 2026
 - **Week12 Content -->**: [▶️ Week12](docs/curriculum/4-DeepLearningFoundations/12.week12.md)
+
+</details>
+
+------------------------------------------------------------------------------------------------------------
+
+<details>
+<summary>🚧 📒 Week 13: Applied AI — Natural Language Processing (NLP)</summary>
+<br/>
+
+- **Status**: 🚧 InProgress
+- **Goal (What we will prove this week)**:
+    - We can understand how raw text becomes model-ready data.
+    - We can explain the difference between rules-based text processing, classical ML NLP, embeddings, and modern language-model workflows.
+    - We can build a small NLP workflow that converts text into numeric representations, trains/evaluates a simple model, and explains the result.
+    - We can connect NLP concepts to applied AI use cases such as classification, search, similarity, summarization, and question answering.
+
+- **Topics Planned**:
+    - What NLP is and where it fits in Applied AI
+    - Text cleaning and normalization
+    - Tokens, vocabulary, sequence length, and padding
+    - Bag-of-words and TF-IDF as classical text representations
+    - Word embeddings and sentence embeddings
+    - Cosine similarity for text comparison and semantic search
+    - Text classification workflow using scikit-learn
+    - Embedding-based similarity workflow
+    - Introduction to transformers and language models at a practical level
+    - Prompting, grounding, and retrieval-augmented generation \(RAG\) intuition
+    - Evaluating NLP outputs using accuracy, precision/recall/F1, similarity, and qualitative checks
+    - Responsible NLP: hallucination, bias, privacy, and evaluation limits
+
+- **Mini Project Deliverables**:
+    - Text preprocessing notes
+    - Tokenization and vocabulary examples
+    - Bag-of-words / TF-IDF representation examples
+    - Cosine similarity examples for comparing text
+    - A small text classification workflow
+    - A short explanation of embeddings and why they improve text similarity
+    - A simple semantic-search style example
+    - A final NLP workflow summary connecting classical NLP and modern LLM-style applications
+
+- **Time Frame**: June 2026
+- **Week13 Content -->**: [▶️ Week13](docs/curriculum/5-AppliedAI/13.week13.md)
 
 </details>
 
