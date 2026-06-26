@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 
 
 LEARNING_RATE = 0.001
-EPOCHS = 5
+EPOCHS = 50
 
 
 improved_model = ImprovedImageModel()

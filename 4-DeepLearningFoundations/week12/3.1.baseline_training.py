@@ -16,7 +16,7 @@ INPUT_SIZE = 1 * 28 * 28
 HIDDEN_SIZE = 128
 NUM_CLASSES = 10
 LEARNING_RATE = 0.001
-EPOCHS = 5
+EPOCHS = 50
 
 torch.manual_seed(RANDOM_SEED) #makes PyTorch’s random choices more repeatable.
 
