@@ -1,4 +1,11 @@
-# ✅ Master Checklist — everything we hope to finish
+# ✅ Master Checklist — ⚠️ DEPRECATED
+
+> **This checklist is superseded.** The single status ledger for the whole journey is now
+> **[`../MasterPlan/6-MASTER-CHECKLIST.md`](../MasterPlan/6-MASTER-CHECKLIST.md)**. Do not track status
+> here — it will drift. The content below is kept only as a historical snapshot of the original
+> Addendum-only plan.
+
+---
 
 The single page to track the whole post-main-course plan. Update statuses here; details live in each module.
 
