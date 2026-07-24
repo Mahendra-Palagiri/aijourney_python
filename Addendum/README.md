@@ -1,22 +1,31 @@
-# 🧭 Addendum — AI Journey, Part 2
+# 🧭 Addendum — AI Journey, Part 2  ·  ⚠️ PLANNING SUPERSEDED
+
+> ## 📍 This folder is now a CONTENT LIBRARY, not a plan.
+> The governing plan for the whole journey is **[`../MasterPlan/`](../MasterPlan/README.md)** (v2.0,
+> July 2026). It merged this Addendum's plan with the July-2026 second review pass. **Read the
+> MasterPlan first; it wins over anything in this file.**
+>
+> What changed and why (details in `../MasterPlan/1-PROGRAM-MAP.md` §1):
+> - The **START GATE below is REPEALED** — replaced by 3 parallel tracks
+>   (`../MasterPlan/2-EXECUTION-PLAN.md` §2). Market-critical work no longer waits a year.
+> - **Status is tracked ONLY in `../MasterPlan/6-MASTER-CHECKLIST.md`** — this folder's CHECKLIST.md
+>   is deprecated.
+> - Main-course weeks 14–20 are **absorbed into Addendum weeks G–M** (no separate main-course build).
+> - The **lesson files in this folder are still the real content** — Modules 1–5 (weeks A–M) are built
+>   and used as-is; Modules 6–9 (weeks N–U) get built into new sibling folders per
+>   `../MasterPlan/4-MODULE-SPECS/`.
+> - Modules 4–5 still need the light revision pass — now scoped in
+>   `../MasterPlan/4-MODULE-SPECS/spec-module4-5-revision.md`.
+
+<details>
+<summary>📜 Original Addendum plan (historical — superseded by MasterPlan)</summary>
 
 This addendum extends the main `aijourney_python` curriculum. It was derived from the
-[full project analysis](aijourney_project_analysis.html) (June 2026). The main repo stays frozen —
-everything new happens here.
+[full project analysis](aijourney_project_analysis.html) (June 2026).
 
-> ## ⛔ START GATE — read this first
-> **Nothing in this Addendum starts until the MAIN COURSE is 100% finished** (Week 12 capstone closed
-> AND Phases 5–6 / Weeks 13–20 built and completed the usual way, in the main repo).
-> The main course is the path; the Addendum fills gaps and enhances afterwards — never deviates.
->
-> ## ⚠️ Modules 4 & 5 are DRAFTS — must be FIXED/REVISED before use
-> Modules 4 (Applied AI) and 5 (Deployment & MLOps) were written in June 2026, **before** the main
-> course's Phases 5–6 existed. Once the main course is done, these two modules MUST be revised against
-> what was actually covered: delete what duplicates the main course, keep only the delta
-> (e.g., transformers/LLMs in Week F, the DL toolkit day in Week G-2, pytest/SQL in Week J).
-> Do not study Modules 4–5 as written. Modules 0–3 need no revision — they target only completed material.
->
-> **The sequence: ① finish main course → ② revise Modules 4–5 → ③ run [CHECKLIST.md](CHECKLIST.md).**
+> ## ⛔ START GATE (REPEALED — see MasterPlan)
+> Originally: nothing in this Addendum starts until the main course is 100% finished.
+> Now replaced by the 3-track system in `../MasterPlan/2-EXECUTION-PLAN.md`.
 
 **Format law (learned from Weeks 10–11 of the main course):**
 - Every lesson is a pair: `N.0.<topic>.md` (theory, written up-front) + `N.1.<topic>.py` (practice, filled in when we study it)
@@ -113,3 +122,9 @@ Addendum/
 - Update the Status column in this README as modules complete (mirror the main repo habit).
 - Each week's final day produces a written artifact (comparison table, defense, or retrospective).
 - Datasets: prefer small, cacheable, seeded — same reproducibility discipline as Week 8.
+
+</details>
+
+---
+*Status and sequencing are now governed by [`../MasterPlan/`](../MasterPlan/README.md). This file is kept
+for its module descriptions and conventions only.*

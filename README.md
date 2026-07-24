@@ -2,6 +2,12 @@
 
 A motivation to learn AI using Python
 
+> ### 🧭 The plan lives in [`MasterPlan/`](MasterPlan/README.md)
+> Weeks 1–13 below are complete/in-progress history. **Weeks 14–20 are superseded** — the journey now
+> continues under the unified [MasterPlan](MasterPlan/README.md), which merges the main-course plan, the
+> [Addendum](Addendum/README.md) content library, and the July-2026 market gap analysis into one path to
+> a top-candidate profile. Live status: [`MasterPlan/6-MASTER-CHECKLIST.md`](MasterPlan/6-MASTER-CHECKLIST.md).
+
 <details>
 <summary>📜 **Program Overview** — *(Click to Expand)*</summary>
 <br/>
