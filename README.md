@@ -3,8 +3,8 @@
 A motivation to learn AI using Python
 
 > ### 🧭 The plan lives in [`MasterPlan/`](MasterPlan/README.md)
-> Weeks 1–13 below are complete/in-progress history. **Weeks 14–20 are superseded** — the journey now
-> continues under the unified [MasterPlan](MasterPlan/README.md), which merges the main-course plan, the
+> Weeks 1–13 below are completed history. **Week 14 is an active Computer Vision curriculum bridge aligned
+> with MasterPlan Week G; Weeks 15–20 remain superseded** — the journey continues under the unified [MasterPlan](MasterPlan/README.md), which merges the main-course plan, the
 > [Addendum](Addendum/README.md) content library, and the July-2026 market gap analysis into one path to
 > a top-candidate profile. Live status: [`MasterPlan/6-MASTER-CHECKLIST.md`](MasterPlan/6-MASTER-CHECKLIST.md).
 
@@ -26,8 +26,8 @@ A motivation to learn AI using Python
 |       | Week 10 | PyTorch basics | Tensor operations, autograd, training-loop mechanics | ✅ Done | May 2026 |
 |       | Week 11 | CNNs | Convolution operation math, CNN tensor shapes, pooling, CNN training workflow | ✅ Done | June 2026 |
 |       | Week 12 | Mini capstone | End-to-end deep learning workflow, baseline comparison, PyTorch training/evaluation, model defense | ✅ Done | June 2026 |
-| **5 – Applied AI**  | Week 13 | NLP | Text representation, tokenization, embeddings, cosine similarity, NLP model workflow | 🚧 InProgress |  |
-|       | Week 14 | Computer vision | Image filter kernels, normalization | 📅 To Do |  |
+| **5 – Applied AI**  | Week 13 | NLP | Text representation, classification, embeddings, semantic search, grounding, RAG, responsible NLP | ✅ Done | Aug 2026 |
+|       | Week 14 | Computer vision | Image pipelines, augmentation, DL toolkit, transfer learning, CV evaluation | 🚧 InProgress |  |
 |       | Week 15 | Time series | Seasonal decomposition, autocorrelation | 📅 To Do |  |
 |       | Week 16 | Mini capstone | Consolidation of above | 📅 To Do |  |
 | **6 – Deployment & Final Capstone**| Week 17 | Deployment basics | None new | 📅 To Do |  |
@@ -332,17 +332,17 @@ A motivation to learn AI using Python
 ------------------------------------------------------------------------------------------------------------
 
 <details>
-<summary>🚧 📒 Week 13: Applied AI — Natural Language Processing (NLP)</summary>
+<summary>✅ 📒 Week 13: Applied AI — Natural Language Processing (NLP)</summary>
 <br/>
 
-- **Status**: 🚧 InProgress
+- **Status**: ✅ Completed
 - **Goal (What we will prove this week)**:
     - We can understand how raw text becomes model-ready data.
     - We can explain the difference between rules-based text processing, classical ML NLP, embeddings, and modern language-model workflows.
     - We can build a small NLP workflow that converts text into numeric representations, trains/evaluates a simple model, and explains the result.
     - We can connect NLP concepts to applied AI use cases such as classification, search, similarity, summarization, and question answering.
 
-- **Topics Planned**:
+- **Topics Covered**:
     - What NLP is and where it fits in Applied AI
     - Text cleaning and normalization
     - Tokens, vocabulary, sequence length, and padding
@@ -356,7 +356,7 @@ A motivation to learn AI using Python
     - Evaluating NLP outputs using accuracy, precision/recall/F1, similarity, and qualitative checks
     - Responsible NLP: hallucination, bias, privacy, and evaluation limits
 
-- **Mini Project Deliverables**:
+- **Deliverables Completed**:
     - Text preprocessing notes
     - Tokenization and vocabulary examples
     - Bag-of-words / TF-IDF representation examples
@@ -366,8 +366,37 @@ A motivation to learn AI using Python
     - A simple semantic-search style example
     - A final NLP workflow summary connecting classical NLP and modern LLM-style applications
 
-- **Time Frame**: June 2026
+- **Time Frame**: July & Aug 2026
 - **Week13 Content -->**: [▶️ Week13](docs/curriculum/5-AppliedAI/13.week13.md)
+
+</details>
+
+------------------------------------------------------------------------------------------------------------
+
+<details>
+<summary>🚧 📒 Week 14: Applied AI — Computer Vision</summary>
+<br/>
+
+- **Status**: 🚧 InProgress
+- **Goal (What we will prove this week)**:
+    - We can move from clean image tensors to realistic computer-vision input pipelines.
+    - We can apply normalization and label-safe augmentation correctly.
+    - We can use the modern deep-learning training toolkit: dropout, batch normalization, schedulers, weight decay, and early stopping.
+    - We can compare a from-scratch CNN with frozen-feature and fine-tuned transfer-learning baselines.
+    - We can evaluate image models using per-class behavior, confusion patterns, confidence, robustness, and visual error analysis.
+
+- **Topics Planned**:
+    - Real image data, transforms, normalization, and augmentation
+    - Label-safe train transforms and deterministic evaluation transforms
+    - Dropout, batch normalization, weight decay, learning-rate schedulers, and early stopping
+    - Transfer learning with pretrained ResNet models
+    - Frozen backbones, feature extraction, partial fine-tuning, and full fine-tuning
+    - Computer-vision error analysis, robustness, and model interpretation
+    - Device-aware training, memory, checkpointing, and reproducibility
+    - Detection, segmentation, vision transformers, and image-text embeddings
+    - A small CV mini-project and evidence-based model defense
+
+- **Week14 Content -->**: [▶️ Week14](docs/curriculum/5-AppliedAI/14.week14.md)
 
 </details>
 
