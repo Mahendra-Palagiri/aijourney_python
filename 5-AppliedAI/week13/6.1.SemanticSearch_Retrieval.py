@@ -255,3 +255,72 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+''' -- output --
+
+======================================================================
+Query: How do I get my money back after sending something back?
+======================================================================
+
+Rank 1 | ID: D2 | Category: refund | Similarity: 0.4474
+Items may be returned within 30 days for a refund.
+
+Rank 2 | ID: D5 | Category: product | Similarity: 0.4135
+Exchange a damaged product by contacting support.
+
+Rank 3 | ID: D4 | Category: account | Similarity: 0.3741
+Reset your password from the account recovery page.
+
+Expected relevant IDs: ['D2']
+Precision@3: 0.33
+
+======================================================================
+Query: My card was charged two times.
+======================================================================
+
+Rank 1 | ID: D7 | Category: billing | Similarity: 0.5588
+Report an incorrect or duplicate charge on your bill.
+
+Rank 2 | ID: D3 | Category: billing | Similarity: 0.4157
+Update an expired credit card in payment settings.
+
+Rank 3 | ID: D6 | Category: order | Similarity: 0.2158
+Cancel an order before it has been shipped.
+
+Expected relevant IDs: ['D7']
+Precision@3: 0.33
+
+======================================================================
+Query: I forgot how to access my account.
+======================================================================
+
+Rank 1 | ID: D4 | Category: account | Similarity: 0.6925
+Reset your password from the account recovery page.
+
+Rank 2 | ID: D7 | Category: billing | Similarity: 0.2504
+Report an incorrect or duplicate charge on your bill.
+
+Rank 3 | ID: D3 | Category: billing | Similarity: 0.2450
+Update an expired credit card in payment settings.
+
+Expected relevant IDs: ['D4']
+Precision@3: 0.33
+
+======================================================================
+Query: The product arrived broken.
+======================================================================
+
+Rank 1 | ID: D8 | Category: product | Similarity: 0.6386
+Request a replacement when an item arrives broken.
+
+Rank 2 | ID: D5 | Category: product | Similarity: 0.5324
+Exchange a damaged product by contacting support.
+
+Rank 3 | ID: D6 | Category: order | Similarity: 0.2607
+Cancel an order before it has been shipped.
+
+Expected relevant IDs: ['D5', 'D8']
+Precision@3: 0.67
+
+'''
