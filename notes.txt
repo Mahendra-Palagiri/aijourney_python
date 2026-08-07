@@ -1,5 +1,9 @@
 ~~ use "command + /". -->  to comment a line in VS Code
 ~~ To preview Readme.md in Vs code  on Mac  --> Command+Shift+V
-~~ /Users/mahendrapalagiri/Documents/GitHub/aijourney_python/.venv/bin/python -m pip install seaborn
+~~ ./.venv/bin/python -m pip install seaborn
 ~~ brew install Graphviz  (using macos Termnial)
-~~ /Users/mahendrapalagiri/Documents/GitHub/aijourney_python/.venv/bin/python -m pip freeze > /Users/mahendrapalagiri/Documents/GitHub/aijourney_python/requirements.txt
+~~ requirements.in lists ONLY the parent libraries you actually import (numpy, pandas, torch, etc).
+~~ requirements.txt is auto-generated from it (full pinned lock, incl. transitive deps) via uv (pip-tools' resolver breaks on newer pip):
+~~   ./.venv/bin/uv pip compile requirements.in -o requirements.txt --python ./.venv/bin/python
+~~ When you start importing a new top-level library, add its name to requirements.in first, then re-run the command above.
+~~ To install everything pinned: ./.venv/bin/python -m pip install -r requirements.txt

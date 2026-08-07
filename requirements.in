@@ -1,0 +1,17 @@
+# Direct/parent libraries only — everything else in requirements.txt is a
+# transitive dependency pulled in automatically by these.
+# Regenerate requirements.txt with: pip-compile requirements.in
+
+numpy
+pandas
+matplotlib
+scipy
+seaborn
+scikit-learn
+statsmodels
+torch
+torchvision
+joblib
+graphviz
+sentence-transformers
+ipykernel
