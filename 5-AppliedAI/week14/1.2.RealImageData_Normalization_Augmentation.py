@@ -1,0 +1,143 @@
+import torch
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+import matplotlib.pyplot as plt 
+
+# =============================================================================
+# Dataset Load
+# =============================================================================
+imagedata = datasets.CIFAR10(
+    download=True,
+    root="5-AppliedAI/week14/data",
+    train=True,
+    transform=None
+)
+
+image, label = imagedata[0]
+
+# =============================================================================
+# Data Inspection
+# =============================================================================
+print(f"{30*'~'} INSPECT DATA  {30*'~'}")
+print(f"Length of Dataset : {len(imagedata)}")
+print(f"Image Classes : {imagedata.classes}")
+print(f"Type of Image : {type(image)}")
+print(f"Image Size : {image.size}")
+print(f"Image Mode : {image.mode}")
+print(f"Label : {label}")
+print(f"Label Class : {imagedata.classes[label]}")
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INSPECT DATA  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Length of Dataset : 50000
+Image Classes : ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+Type of Image : <class 'PIL.Image.Image'>
+Image Size : (32, 32)
+Image Mode : RGB
+Label : 6
+Label Class : frog
+'''
+
+# =============================================================================
+# Display the Image
+# =============================================================================
+plt.imshow(image)
+plt.title(imagedata.classes[label])
+plt.axis("off")
+# plt.show()
+
+# =============================================================================
+# Convert one Image to Tensor and Inspect
+# =============================================================================
+to_tensor= transforms.ToTensor()
+tensor_image = to_tensor(image)
+print(f"\n{30*'~'} INSPECT TENSOR IMAGE  {30*'~'}")
+print(f"Type of Image : {type(tensor_image)}")
+print(f"Image Shape : {tensor_image.shape}")
+print(f"Image dtype : {tensor_image.dtype}")
+print(f"Image Max : {tensor_image.max()}")
+print(f"Image Min : {tensor_image.min()}")
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INSPECT TENSOR IMAGE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type of Image : <class 'torch.Tensor'>
+Image Shape : torch.Size([3, 32, 32])
+Image dtype : torch.float32
+Image Max : 1.0
+Image Min : 0.0
+'''
+
+# =============================================================================
+# Apply basic transformation
+# =============================================================================
+basic_transform = transforms.Compose(
+    [transforms.Resize((224,224)),
+    transforms.ToTensor()]
+)
+
+basic_transformed_image = basic_transform(image)
+print(f"\n{30*'~'} INSPECT BASIC TRANSFORMED IMAGE  {30*'~'}")
+print(f"Type of Image : {type(basic_transformed_image)}")
+print(f"Image Shape : {basic_transformed_image.shape}")
+print(f"Image dtype : {basic_transformed_image.dtype}")
+print(f"Image Max : {basic_transformed_image.max()}")
+print(f"Image Min : {basic_transformed_image.min()}")
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INSPECT BASIC TRANSFORMED IMAGE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type of Image : <class 'torch.Tensor'>
+Image Shape : torch.Size([3, 224, 224])
+Image dtype : torch.float32
+Image Max : 1.0
+Image Min : 0.0
+'''
+
+# =============================================================================
+# Apply Normalized transformation
+# =============================================================================
+normalized_transform = transforms.Compose([
+    transforms.Resize((224,224)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.5,0.5,0.5],[0.5,0.5,0.5])
+])
+
+normalized_transformed_image = normalized_transform(image)
+print(f"\n{30*'~'} INSPECT NORMALIZED TRANSFORMED IMAGE  {30*'~'}")
+print(f"Type of Image : {type(normalized_transformed_image)}")
+print(f"Image Shape : {normalized_transformed_image.shape}")
+print(f"Image dtype : {normalized_transformed_image.dtype}")
+print(f"Image Max : {normalized_transformed_image.max().item()}")
+print(f"Image Min : {normalized_transformed_image.min().item()}")
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INSPECT NORMALIZED TRANSFORMED IMAGE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type of Image : <class 'torch.Tensor'>
+Image Shape : torch.Size([3, 224, 224])
+Image dtype : torch.float32
+Image Max : 1.0
+Image Min : -1.0
+'''
+
+# =============================================================================
+# Label Safe Augumentation (To be completed)
+# =============================================================================
+labelsafe_transform = transforms.Compose([
+    transforms.Resize((224,224)),
+    transforms.RandomHorizontalFlip(0.5),
+    transforms.RandomRotation(10),
+    transforms.ToTensor(),
+    transforms.Normalize([0.5,0.5,0.5],[0.5,0.5,0.5])
+])
+
+for x in range(4):
+    labelsafe_transformed_image = labelsafe_transform(image)
+    print(f"\n{30*'~'} {x} INSPECT LABEL SAFE TRANSFORMED IMAGE   {30*'~'}")
+    print(f"Type of Image : {type(labelsafe_transformed_image)}")
+    print(f"Image Shape : {labelsafe_transformed_image.shape}")
+    print(f"Image dtype : {labelsafe_transformed_image.dtype}")
+    print(f"Image Max : {labelsafe_transformed_image.max().item()}")
+    print(f"Image Min : {labelsafe_transformed_image.min().item()}")
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INSPECT LABEL SAFE TRANSFORMED IMAGE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type of Image : <class 'torch.Tensor'>
+Image Shape : torch.Size([3, 224, 224])
+Image dtype : torch.float32
+Image Max : 1.0
+Image Min : -1.0
+'''
