@@ -146,7 +146,7 @@ for x in range(4):
     axes[row, col].imshow(display_image)
 
 
-plt.show()   
+# plt.show()   
 
 '''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 1 INSPECT LABEL SAFE TRANSFORMED IMAGE   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Type of Image : <class 'torch.Tensor'>
@@ -175,4 +175,37 @@ Image Shape : torch.Size([3, 224, 224])
 Image dtype : torch.float32
 Image Max : 1.0
 Image Min : -1.0
+'''
+
+
+# =============================================================================
+# Training and evaluating pipelines
+# =============================================================================
+train_data = datasets.CIFAR10(
+    download=False,
+    root="5-AppliedAI/week14/data",
+    train=True,
+    transform=labelsafe_transform
+)
+
+test_data = datasets.CIFAR10(
+    download=False,
+    root="5-AppliedAI/week14/data",
+    train=False,
+    transform=normalized_transform
+)
+
+train_image, train_label = train_data[0]
+test_image, test_label = test_data[0]
+
+print(f"\n{30*'~'} TRAINING & TEST DATA INSPECTION {30*'~'}")
+print(f"Datasets size  --> Training Data '{len(train_data)}'--- Test Data '{len(test_data)}'")
+print(f"Images Shape   --> Training Image Shape '{train_image.shape}' --- Test Image Shape '{test_image.shape}' ")
+print(f"Images dtype   --> Training Image datatype '{train_image.dtype}' --- Test Image datatype '{test_image.dtype}' ")
+
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TRAINING & TEST DATA INSPECTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Datasets size  --> Training Data '50000'--- Test Data '10000'
+Images Shape   --> Training Image Shape 'torch.Size([3, 224, 224])' --- Test Image Shape 'torch.Size([3, 224, 224])' 
+Images dtype   --> Training Image datatype 'torch.float32' --- Test Image datatype 'torch.float32'
 '''
