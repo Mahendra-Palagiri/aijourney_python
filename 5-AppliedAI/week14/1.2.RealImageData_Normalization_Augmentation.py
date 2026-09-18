@@ -125,16 +125,51 @@ labelsafe_transform = transforms.Compose([
     transforms.Normalize([0.5,0.5,0.5],[0.5,0.5,0.5])
 ])
 
+fig, axes = plt.subplots(2,2,figsize = (12,13))
+fig.suptitle("2 x 2 transformations of frog")
+
 for x in range(4):
     labelsafe_transformed_image = labelsafe_transform(image)
-    print(f"\n{30*'~'} {x} INSPECT LABEL SAFE TRANSFORMED IMAGE   {30*'~'}")
+    print(f"\n{30*'~'} {x+1} INSPECT LABEL SAFE TRANSFORMED IMAGE   {30*'~'}")
     print(f"Type of Image : {type(labelsafe_transformed_image)}")
     print(f"Image Shape : {labelsafe_transformed_image.shape}")
     print(f"Image dtype : {labelsafe_transformed_image.dtype}")
     print(f"Image Max : {labelsafe_transformed_image.max().item()}")
     print(f"Image Min : {labelsafe_transformed_image.min().item()}")
 
-'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INSPECT LABEL SAFE TRANSFORMED IMAGE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    row = x//2 #Floor division
+    col = x%2 
+    display_tensor = labelsafe_transformed_image *0.5+0.5  #Converting from a normalized format to display format
+    display_image = display_tensor.permute(1,2,0) #The shape of transfomred image is. [C,H,W] but pyplot requireds in [H,W,C]
+    axes[row, col].set_title(f"Frog- Augmentation {x+1}")
+    axes[row, col].axis("off")
+    axes[row, col].imshow(display_image)
+
+
+plt.show()   
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 1 INSPECT LABEL SAFE TRANSFORMED IMAGE   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type of Image : <class 'torch.Tensor'>
+Image Shape : torch.Size([3, 224, 224])
+Image dtype : torch.float32
+Image Max : 1.0
+Image Min : -1.0
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 2 INSPECT LABEL SAFE TRANSFORMED IMAGE   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type of Image : <class 'torch.Tensor'>
+Image Shape : torch.Size([3, 224, 224])
+Image dtype : torch.float32
+Image Max : 1.0
+Image Min : -1.0
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 3 INSPECT LABEL SAFE TRANSFORMED IMAGE   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type of Image : <class 'torch.Tensor'>
+Image Shape : torch.Size([3, 224, 224])
+Image dtype : torch.float32
+Image Max : 1.0
+Image Min : -1.0
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 4 INSPECT LABEL SAFE TRANSFORMED IMAGE   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Type of Image : <class 'torch.Tensor'>
 Image Shape : torch.Size([3, 224, 224])
 Image dtype : torch.float32
