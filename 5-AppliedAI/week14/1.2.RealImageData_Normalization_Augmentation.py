@@ -209,3 +209,32 @@ Datasets size  --> Training Data '50000'--- Test Data '10000'
 Images Shape   --> Training Image Shape 'torch.Size([3, 224, 224])' --- Test Image Shape 'torch.Size([3, 224, 224])' 
 Images dtype   --> Training Image datatype 'torch.float32' --- Test Image datatype 'torch.float32'
 '''
+
+# =============================================================================
+# Using data loaders to retireves batches of data instad of doing it manually
+# =============================================================================
+train_dataloader = DataLoader(train_data,batch_size=8,shuffle=True,num_workers=0)
+test_dataloader = DataLoader(test_data,batch_size=8,shuffle=False,num_workers=0)
+
+train_images, train_labels = next(iter(train_dataloader))
+test_images, test_labels = next(iter(test_dataloader))
+print(f"\n{30*'~'} TRAINING & TEST DATA LOADER DATA {30*'~'}")
+print(f"Images Shape   --> Training Images Shape '{train_images.shape}' --- Test Images Shape '{test_images.shape}' ")
+print(f"Images dtype   --> Training Images datatype '{train_images.dtype}' --- Test Images datatype '{test_images.dtype}' ")
+print(f"Images Max   --> Training Images Max '{train_images.max()}' --- Test Images Max '{test_images.max()}' ")
+print(f"Images Min   --> Training Images Min '{train_images.min()}' --- Test Images Min '{test_images.min()}' ")
+
+print(f"\nLabels Shape   --> Training Labels Shape '{train_labels.shape}' --- Test Labels Shape '{test_labels.shape}' ")
+print(f"Labels dtype   --> Training Labels datatype '{train_labels.dtype}' --- Test Labels datatype '{test_labels.dtype}' ")
+print(f"Labels Values   --> Training Labels Values '{train_labels}' --- Test Labels Values '{test_labels}' ")
+
+'''~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TRAINING & TEST DATA LOADER DATA ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Images Shape   --> Training Images Shape 'torch.Size([8, 3, 224, 224])' --- Test Images Shape 'torch.Size([8, 3, 224, 224])' 
+Images dtype   --> Training Images datatype 'torch.float32' --- Test Images datatype 'torch.float32' 
+Images Max   --> Training Images Max '1.0' --- Test Images Max '1.0' 
+Images Min   --> Training Images Min '-1.0' --- Test Images Min '-1.0' 
+
+Labels Shape   --> Training Labels Shape 'torch.Size([8])' --- Test Labels Shape 'torch.Size([8])' 
+Labels dtype   --> Training Labels datatype 'torch.int64' --- Test Labels datatype 'torch.int64' 
+Labels Values   --> Training Labels Values 'tensor([0, 1, 3, 0, 6, 7, 8, 9])' --- Test Labels Values 'tensor([3, 8, 8, 0, 6, 6, 1, 6])' 
+'''
