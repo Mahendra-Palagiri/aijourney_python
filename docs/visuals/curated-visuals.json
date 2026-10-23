@@ -1,0 +1,931 @@
+{
+  "reviewDate": "2026-10-23",
+  "scope": "Weeks 1–13 curated backfill; existing Week 14 Days 1–2 visuals. Later Addendum weeks are outside this review.",
+  "statusIndex": "docs/visuals/STATUS.md",
+  "qualityReview": {
+    "date": "2026-10-23",
+    "status": "implemented_and_coverage_checked",
+    "details": "docs/visuals/STATUS.md",
+    "imageChangesThisReview": 29,
+    "newFiles": 18,
+    "revisedFiles": 11,
+    "completedPackages": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "T01",
+      "T02",
+      "T03"
+    ],
+    "pendingPackages": [],
+    "note": "Scope: current Weeks 1–13 curated assets and retained Week 14 practice. E02 delivered as two source-grounded interpretation companions; original diagnostic PNGs preserved. Added further companions for weekly topic coverage. Addendum/future lessons remain out of scope."
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "decision": "2 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Two companions: object references/loop tracing and Python types/control flow/collections/instances."
+    },
+    {
+      "week": 2,
+      "decision": "3 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Three companions: array axes, broadcasting/masks, and Pandas/plotting, aligned with the four documented days."
+    },
+    {
+      "week": 3,
+      "decision": "2 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Decision regions with explicit query mapping plus the features-to-selection workflow."
+    },
+    {
+      "week": 4,
+      "decision": "2 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Worked fit/transform arithmetic plus a mixed numerical/categorical column pipeline."
+    },
+    {
+      "week": 5,
+      "decision": "3 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Logistic model and regularization; thresholds and confusion counts; ROC/AUC ranking."
+    },
+    {
+      "week": 6,
+      "decision": "6 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Regression fitting/metrics/Ridge, residual interpretation, influence interpretation and three original plots."
+    },
+    {
+      "week": 7,
+      "decision": "3 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Separate ordinary CV, nested CV and illustrative learning curves."
+    },
+    {
+      "week": 8,
+      "decision": "2 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Full project workflow plus recorded model comparison and holdout evidence."
+    },
+    {
+      "week": 9,
+      "decision": "2 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Retain the numerical gradient update and add nonlinear hidden-feature anatomy."
+    },
+    {
+      "week": 10,
+      "decision": "3 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Separate batching, autograd state and training/evaluation metric workflow."
+    },
+    {
+      "week": 11,
+      "decision": "2 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Separate spatial window arithmetic from multi-channel convolution and shape flow; retain interactive asset."
+    },
+    {
+      "week": 12,
+      "decision": "2 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Full deep-learning project workflow plus measured baseline/CNN validation comparison."
+    },
+    {
+      "week": 13,
+      "decision": "6 PNGs; sufficient for core weekly visual summary",
+      "rationale": "Retain distinct tokenization and RAG overviews; redesign TF-IDF, text classification, cosine and retrieval with worked examples."
+    },
+    {
+      "week": 14,
+      "decision": "3 PNGs; Days 1–2 sufficient",
+      "rationale": "Retain existing corrected Day 1 and Day 2 overview/split visuals."
+    }
+  ],
+  "assets": [
+    {
+      "week": 1,
+      "title": "A single state trace shows aliasing, mutation, reassignment, and a loop result",
+      "path": "1-PythonFundations/week1/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Rendered and individually visually inspected; numerical examples verified."
+    },
+    {
+      "week": 1,
+      "title": "Python control flow collections and objects",
+      "path": "1-PythonFundations/week1/0.2.Python_Program_and_Objects.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/1-PythonFundations/1.week1.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 2,
+      "title": "Array axes and reshape",
+      "path": "1-PythonFundations/week2/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "source": "docs/curriculum/1-PythonFundations/2.week2.md",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 2,
+      "title": "Broadcasting and masks",
+      "path": "1-PythonFundations/week2/0.2.Broadcasting_and_Masks.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/1-PythonFundations/2.week2.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 2,
+      "title": "Pandas aggregation and plotting",
+      "path": "1-PythonFundations/week2/0.3.Pandas_and_Plotting.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/1-PythonFundations/2.week2.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 3,
+      "title": "Decision regions and query predictions",
+      "path": "2-DataAnalysis_Visualization/week3/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "source": "docs/curriculum/2-DataAnalysis_Visualization/3.week3.md",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 3,
+      "title": "Features labels and model selection",
+      "path": "2-DataAnalysis_Visualization/week3/0.2.ML_Workflow.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/2-DataAnalysis_Visualization/3.week3.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 4,
+      "title": "Training-only preprocessing arithmetic",
+      "path": "2-DataAnalysis_Visualization/week4/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "source": "docs/curriculum/2-DataAnalysis_Visualization/4.week4.md",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 4,
+      "title": "Mixed column preprocessing pipeline",
+      "path": "2-DataAnalysis_Visualization/week4/0.2.Mixed_Column_Pipeline.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/2-DataAnalysis_Visualization/4.week4.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 5,
+      "title": "The same eight predictions under two thresholds link individual mistakes to confusion counts, precision, and recall.",
+      "path": "3-MLFoundations/week5/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Rendered and individually visually inspected; numerical examples verified."
+    },
+    {
+      "week": 5,
+      "title": "Logistic scores and regularization",
+      "path": "3-MLFoundations/week5/0.2.Logistic_Model_and_Regularization.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/3-MLFoundations/5.week5.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 5,
+      "path": "3-MLFoundations/week5/0.3.ROC_and_Ranking.png",
+      "title": "ROC thresholds and AUC ranking",
+      "source": "docs/curriculum/3-MLFoundations/5.week5.md",
+      "type": "worked_diagram",
+      "renderer": "docs/visuals/render_refined_guides.py",
+      "review": "Worked diagram matched to weekly curriculum; render layout and numeric examples checked."
+    },
+    {
+      "week": 6,
+      "title": "Residual sign and target-cap geometry",
+      "path": "3-MLFoundations/week6/0.1.Residual_Interpretation.png",
+      "type": "worked_diagram",
+      "source": "3-MLFoundations/week6/4.RegressionDiagnositcs.py",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 6,
+      "title": "Recorded leverage residual and influence",
+      "path": "3-MLFoundations/week6/0.2.Influence_Interpretation.png",
+      "type": "worked_diagram",
+      "source": "3-MLFoundations/week6/6.InfluenceRemoval_vs_Ridge.py",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 6,
+      "path": "3-MLFoundations/week6/0.3.Regression_Fit_and_Metrics.png",
+      "title": "Regression fitting, error metrics and Ridge",
+      "source": "docs/curriculum/3-MLFoundations/6.week6.md",
+      "type": "worked_diagram",
+      "renderer": "docs/visuals/render_refined_guides.py",
+      "review": "Worked diagram matched to weekly curriculum; render layout and numeric examples checked."
+    },
+    {
+      "week": 6,
+      "title": "Residual diagnostic plots",
+      "path": "3-MLFoundations/week6/4.1Regression_diagnostics.png",
+      "type": "original_plot"
+    },
+    {
+      "week": 6,
+      "title": "Cook's distance",
+      "path": "3-MLFoundations/week6/5.1CooksDistancePlot.png",
+      "type": "original_plot"
+    },
+    {
+      "week": 6,
+      "title": "Leverage versus studentized residual",
+      "path": "3-MLFoundations/week6/5.2Leverage_StudentizedResidual.png",
+      "type": "original_plot"
+    },
+    {
+      "week": 7,
+      "title": "Ordinary cross-validation",
+      "path": "3-MLFoundations/week7/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "source": "docs/curriculum/3-MLFoundations/7.week7.md",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 7,
+      "title": "Nested selection and assessment",
+      "path": "3-MLFoundations/week7/0.2.Nested_Cross_Validation.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/3-MLFoundations/7.week7.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 7,
+      "title": "Learning curve diagnoses",
+      "path": "3-MLFoundations/week7/0.3.Learning_Curves.png",
+      "type": "worked_diagram",
+      "source": "docs/curriculum/3-MLFoundations/7.week7.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 8,
+      "title": "A chart of the recorded capstone CV means and spread, separated from holdout results, replaces six generic workflow summaries.",
+      "path": "3-MLFoundations/week8/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Rendered and individually visually inspected; numerical examples verified."
+    },
+    {
+      "week": 8,
+      "path": "3-MLFoundations/week8/0.2.Capstone_Workflow.png",
+      "title": "Tabular capstone workflow and selection boundaries",
+      "source": "docs/curriculum/3-MLFoundations/8.week8.md",
+      "type": "worked_diagram",
+      "renderer": "docs/visuals/render_refined_guides.py",
+      "review": "Worked diagram matched to weekly curriculum; render layout and numeric examples checked."
+    },
+    {
+      "week": 9,
+      "title": "One numerical forward/backward/update example connects the derivative to movement on an actual loss curve.",
+      "path": "4-DeepLearningFoundations/week9/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Rendered and individually visually inspected; numerical examples verified."
+    },
+    {
+      "week": 9,
+      "title": "Nonlinear hidden features and network anatomy",
+      "path": "4-DeepLearningFoundations/week9/0.2.Activations_and_Nonlinearity.png",
+      "type": "worked_diagram",
+      "source": "4-DeepLearningFoundations/week9/3.ForwardPropagation_ActivationFunctions.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 10,
+      "title": "Batch pairing and partial batch",
+      "path": "4-DeepLearningFoundations/week10/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "source": "4-DeepLearningFoundations/week10/5.0.pytorch_datapiplelines-dataset-tensordataset-dataloader.md",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 10,
+      "title": "Weight gradient and graph state",
+      "path": "4-DeepLearningFoundations/week10/0.2.Autograd_State.png",
+      "type": "worked_diagram",
+      "source": "4-DeepLearningFoundations/week10/3.0.pytorch_gradients_autograd.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 10,
+      "title": "Epoch workflow and metrics",
+      "path": "4-DeepLearningFoundations/week10/0.3.Training_and_Evaluation.png",
+      "type": "worked_diagram",
+      "source": "4-DeepLearningFoundations/week10/6.0.pytorch_workflow.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 11,
+      "title": "Convolution windows and pooling",
+      "path": "4-DeepLearningFoundations/week11/0.1.Weekly_Visual_Guide.png",
+      "type": "weekly",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "source": "4-DeepLearningFoundations/week11/4.0.cnnmath_stride_padding.md",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 11,
+      "title": "RGB filters output maps and shapes",
+      "path": "4-DeepLearningFoundations/week11/0.2.Channels_and_Shapes.png",
+      "type": "worked_diagram",
+      "source": "4-DeepLearningFoundations/week11/2.0.CNN_ImageTensorShapes.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "added",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 11,
+      "title": "Interactive convolution visualizer",
+      "path": "4-DeepLearningFoundations/week11/4.2.cnn_convolution_visualizer.html",
+      "type": "original_interactive"
+    },
+    {
+      "week": 12,
+      "path": "4-DeepLearningFoundations/week12/0.1.Capstone_Workflow.png",
+      "title": "Deep learning capstone workflow",
+      "source": "docs/curriculum/4-DeepLearningFoundations/12.week12.md",
+      "type": "worked_diagram",
+      "renderer": "docs/visuals/render_refined_guides.py",
+      "review": "Worked diagram matched to weekly curriculum; render layout and numeric examples checked."
+    },
+    {
+      "week": 12,
+      "title": "Observed capstone results and model defense",
+      "path": "4-DeepLearningFoundations/week12/7.1.Learning_Flow.png",
+      "type": "worked_diagram",
+      "source": "4-DeepLearningFoundations/week12/7.0.retrospective.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 13,
+      "title": "Text Cleaning, Tokenization, and Vocabulary",
+      "path": "5-AppliedAI/week13/2.1.Learning_Flow.png",
+      "type": "retained_concept_diagram"
+    },
+    {
+      "week": 13,
+      "title": "Numerical bag-of-words and TF-IDF",
+      "path": "5-AppliedAI/week13/3.1.Learning_Flow.png",
+      "type": "worked_diagram",
+      "source": "5-AppliedAI/week13/3.0.Bag-of-words_TF-IDF.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 13,
+      "title": "Text feature fit and held-out transform",
+      "path": "5-AppliedAI/week13/4.2.Learning_Flow.png",
+      "type": "worked_diagram",
+      "source": "5-AppliedAI/week13/4.0.TextClassificationWorkflow.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 13,
+      "title": "Correct cosine geometry and arithmetic",
+      "path": "5-AppliedAI/week13/5.1.Learning_Flow.png",
+      "type": "worked_diagram",
+      "source": "5-AppliedAI/week13/5.0.Embeddings_CosineSimilarity.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 13,
+      "title": "Index search filter and ranking",
+      "path": "5-AppliedAI/week13/6.2.Learning_Flow.png",
+      "type": "worked_diagram",
+      "source": "5-AppliedAI/week13/6.0.SemanticSearch_Retrieval.md",
+      "review": "Refined 2026-10-23; individually inspected rendered output after layout repair. Lesson/source mapping and worked examples checked.",
+      "lastAction": "revised",
+      "renderer": "docs/visuals/render_refined_guides.py"
+    },
+    {
+      "week": 13,
+      "title": "LLMs, Grounding, RAG, and Retrospective",
+      "path": "5-AppliedAI/week13/7.1.Learning_Flow.png",
+      "type": "retained_concept_diagram"
+    },
+    {
+      "week": 14,
+      "day": 1,
+      "title": "Real CIFAR-10 image, channel axes, pixel scaling and normalization",
+      "path": "5-AppliedAI/week14/1.1.RealImageData_Normalization_Augmentation.png",
+      "type": "worked_diagram",
+      "review": "Replaced 2026-10-23; inspected rendered image; numeric conversion checked. Original archived."
+    },
+    {
+      "week": 14,
+      "day": 2,
+      "title": "Deep-learning training toolkit overview",
+      "path": "5-AppliedAI/week14/2.1.DeepLearning_Training_Toolkit.png",
+      "type": "retained_concept_diagram",
+      "review": "Retained after visual inspection 2026-10-23."
+    },
+    {
+      "week": 14,
+      "day": 2,
+      "title": "Shuffled indices, subset membership, separate transforms and batch order",
+      "path": "5-AppliedAI/week14/2.3.Split_Indices_and_Transforms.png",
+      "type": "worked_diagram",
+      "review": "Created 2026-10-23; inspected rendered image and checked example index mapping."
+    }
+  ],
+  "replacedOriginals": [
+    {
+      "sourcePath": "5-AppliedAI/week14/1.1.RealImageData_Normalization_Augmentation.png",
+      "archivePath": "docs/visuals/archive/week14-originals/1.1.RealImageData_Normalization_Augmentation.png",
+      "sha256": "7d8a67f9ecaf2f92ab84fcfc191a6c5072201b72b25e2f74a0ba581c77612f39",
+      "reason": "Replaced misleading double pixel scaling and Gaussian-distribution claim with a worked CIFAR-10 example."
+    }
+  ],
+  "archive": [
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/5-AppliedAI/week13/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/5-AppliedAI/week13/1.1.Learning_Flow.png",
+      "sha256": "2be5134d24ae0913e32023cf1006f145d68301141cf2495ca338a4b3f1c19c42"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week12/6.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week12/6.2.Learning_Flow.png",
+      "sha256": "93b3951abae353838fcbdbe715357a997957e398c6ec0c63745edffaae5ed981"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week12/5.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week12/5.2.Learning_Flow.png",
+      "sha256": "ca118a6066da51fa2c66d70a33eb323ea3972f8fe8e5e6b13d6e7fdfafd81380"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week12/4.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week12/4.2.Learning_Flow.png",
+      "sha256": "ccf66f267efd93749843974e9942e7922c8a056ac72e9c48c29dbe232f994cc8"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week12/3.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week12/3.2.Learning_Flow.png",
+      "sha256": "cb32346e3f7196a9326324c37da9e7975dcc5078fc1a6e72a1098fb87ffbb74e"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week12/2.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week12/2.2.Learning_Flow.png",
+      "sha256": "dd3519242fc5f650214bd9e7a1d3aa4106ab7a830b13aef40edf3f0798d6cffd"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week12/1.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week12/1.2.Learning_Flow.png",
+      "sha256": "fa9d6166b0854686356dc6a591dfd28506bce108cf2e1b4b15712137b0eff9cf"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week11/7.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week11/7.2.Learning_Flow.png",
+      "sha256": "35157a883c19c3ece55f82019308ce8ab097fdf397d7953991b88e71f7779a9d"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week11/6.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week11/6.2.Learning_Flow.png",
+      "sha256": "dc6aeab6d5c784c22a6757ac5c793fa806f60ce6fae0cc423b0479942a5bbc70"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week11/5.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week11/5.2.Learning_Flow.png",
+      "sha256": "94fb21253117f81a677309fa279710a0182ac063f6f0016517deaa29290662dd"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week11/4.3.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week11/4.3.Learning_Flow.png",
+      "sha256": "e9f3429dff0e1f6537bf2fc32d2a079699979c8f2e688204e910c5a4d583d78a"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week11/3.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week11/3.2.Learning_Flow.png",
+      "sha256": "ab87593b6c69899f655dfe065cce13b3f69afd492cf06be7d51d8195c03973e1"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week11/2.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week11/2.2.Learning_Flow.png",
+      "sha256": "7f4924d776a32ebaf200d06a1b3566d65d2973d8b6ed60f0262f363c235e1305"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week11/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week11/1.1.Learning_Flow.png",
+      "sha256": "ea0d91b846584769694766c4ed4d593cbc83e7390d85abcfebf0e8ea1d0ec466"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week10/7.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week10/7.2.Learning_Flow.png",
+      "sha256": "1277d1c45ae59802d92ccf1348fa972209c07c3006878b77f9b82a47e0824272"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week10/6.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week10/6.2.Learning_Flow.png",
+      "sha256": "59cbbb3f5614a70287e91f2841e5db357ff5119c8f2dd3389b4baf27481fe775"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week10/5.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week10/5.2.Learning_Flow.png",
+      "sha256": "03b51fca4d86b2e780146ce823cdb72d1dd02cc04d9f9af38f02340c5a59e9b7"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week10/4.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week10/4.2.Learning_Flow.png",
+      "sha256": "a0ecd84b69c19d448afee7e1b20dbfe6c2da0e52c0f32086893ad8ca936269da"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week10/3.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week10/3.2.Learning_Flow.png",
+      "sha256": "1f56bc51babf58a3eec63f2efdbd08519efb1cec2ec9c70a73c6379ec12eb29f"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week10/2.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week10/2.2.Learning_Flow.png",
+      "sha256": "19feb4f3e35f617d93483a3a9ddd12bd740ac226ca05d06867927dae4488c49f"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week10/1.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week10/1.2.Learning_Flow.png",
+      "sha256": "04c0410bee41661252615f60dfe1e88c6331d4fc856cd9423763361cac3b604f"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week9/7.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week9/7.2.Learning_Flow.png",
+      "sha256": "eefcc3f24b702616cfb9c793b9cf75f5f9094c4cfbeb354ceb2d34c8edab96d0"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week9/6.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week9/6.1.Learning_Flow.png",
+      "sha256": "2e07f3d3d2b2e0dccd5b3fd39115779b03280a5e1fce2d5c31f36835b86f60d5"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week9/5.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week9/5.1.Learning_Flow.png",
+      "sha256": "6497df95c1f19cb3dd3e36f6e4b5976fdffe320e35185069e8c94b84984539f2"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week9/4.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week9/4.1.Learning_Flow.png",
+      "sha256": "2e22c525bcedac60a17eed85e555f138a671ba89ccfe9ddc5929e4ed98d2ca90"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week9/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week9/3.1.Learning_Flow.png",
+      "sha256": "da5f09037085450ba14134c38baac119510694fce364c2fbf2cd8c47461fb27d"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week9/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week9/2.1.Learning_Flow.png",
+      "sha256": "95b921b0c753d4ad304a11c5e4d290574304b4edc5c2860c9cc48b283a78376a"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/4-DeepLearningFoundations/week9/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/4-DeepLearningFoundations/week9/1.1.Learning_Flow.png",
+      "sha256": "30d80ac1b93303fd264c55752cbd182374e4ac61b012a1be1e2dcc06f7378bc4"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week8/6.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week8/6.1.Learning_Flow.png",
+      "sha256": "e870ee8d87833b32dfa28293c4ae6a37c0ac24c1e2bb19e68f8e9f46e32c394b"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week8/5.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week8/5.1.Learning_Flow.png",
+      "sha256": "8a9d9f73f251333267ba068bf824f744806ced9a6f9f69bd84d95feb7e043361"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week8/4.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week8/4.1.Learning_Flow.png",
+      "sha256": "8cdf59baad20c039ff8b768c0eac1d65f4124c195dc2599520b17f29578ae3ca"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week8/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week8/3.1.Learning_Flow.png",
+      "sha256": "ebb368f4dd0a9567a679263199c01b685807e39314f6c1c125cd3019af940d70"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week8/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week8/2.1.Learning_Flow.png",
+      "sha256": "69585c258184f4b1a1407d45367152ca92d1217bcacb9a2f76e48f04f9f881f8"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week8/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week8/1.1.Learning_Flow.png",
+      "sha256": "899a26943407a7872f0902da1e011025bc341b445809b94c0d4b8ff40e38c9f4"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week7/7.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week7/7.1.Learning_Flow.png",
+      "sha256": "2f3ff301543eb721ebaa9ba1e3684d5b5bef3506dca4ae12ec1a86f80c10a32e"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week7/6.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week7/6.1.Learning_Flow.png",
+      "sha256": "be2c61f0fdef3df464aaf02f937578849c0d7df505f35a492b2eb51334d7969e"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week7/5.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week7/5.1.Learning_Flow.png",
+      "sha256": "aa84b45c155496877e155db4ebe3fa4d9141303aad46afb0c58790dafd235b76"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week7/4.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week7/4.1.Learning_Flow.png",
+      "sha256": "3d6ab87d1b7e3e30dab9d6110056e5bf150f84b20f5870f50e8804b436b93936"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week7/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week7/3.1.Learning_Flow.png",
+      "sha256": "1f9eb30b1aadfb508b011d4cfa848b6cf28ed8e39c1a0bcdd61f5592a87f33c8"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week7/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week7/2.1.Learning_Flow.png",
+      "sha256": "2cbf3d63f5f0f7ae397cc97124f76c4ff81cbd1de991e6319d8d2e1ad75c5ae5"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week7/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week7/1.1.Learning_Flow.png",
+      "sha256": "aed277c1c934f938b95e55b895d51d0d95587d28c3f7d6a7c7019f2ef35a6b25"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week6/7.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week6/7.1.Learning_Flow.png",
+      "sha256": "e9a771ca9fd11c96b09ccd52a00e2e851d2f6990261774b9a9b4744782b4bf6f"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week6/6.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week6/6.1.Learning_Flow.png",
+      "sha256": "f5e7f533ae746feef8b1d7ee6dabd2481ee8c862693b9a3b2b847d85db6243f9"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week6/5.3.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week6/5.3.Learning_Flow.png",
+      "sha256": "6eb954b98028883c8dc3028abfedfd50fafe58e9e369bd201fd44575b65a3f41"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week6/4.2.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week6/4.2.Learning_Flow.png",
+      "sha256": "aeac2d371c8f8ab7d9d7820d29fd34a5b6bb501f3d3d19f79d89106bc8077ba2"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week6/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week6/3.1.Learning_Flow.png",
+      "sha256": "6857e3b1075f84f76eb7c3416eb85f1c5264dc4868b9022305c9be8e02e46501"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week6/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week6/2.1.Learning_Flow.png",
+      "sha256": "2d1b1af068e665dffff46449aa397f55f42fbc007a96b93a30452a89781316a2"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week6/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week6/1.1.Learning_Flow.png",
+      "sha256": "4939532161f34e580ec86c3688ed8294f2cc59a23c224d910b101d5c4b2fe9a5"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week5/7.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week5/7.1.Learning_Flow.png",
+      "sha256": "1462593678a30d0012c6637f74d38ebf3423ba3a8007499c36bcb41589e0a4bc"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week5/6.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week5/6.1.Learning_Flow.png",
+      "sha256": "cd701e545d2fc2b04013b1d7e1842d3d75e8bdcdfa78de2b74faf8d5a2e4683b"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week5/5.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week5/5.1.Learning_Flow.png",
+      "sha256": "1daa4d89b762b3da665a2083846480e35d2548240c59e3340750352a00165719"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week5/4.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week5/4.1.Learning_Flow.png",
+      "sha256": "70fad28179c20e64e4909021000523576f8880f7a2ad12bb0d5eccaf2a4bfdbd"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week5/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week5/3.1.Learning_Flow.png",
+      "sha256": "6560ccae90ddec86baf5ae5afe85c04cb58258cd7806d6970d67ac256f709f93"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week5/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week5/2.1.Learning_Flow.png",
+      "sha256": "4ab175bc1d3d5bf1d203c3525f1cd2b16f11a1cc9f399b04387d920161e5beaf"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/3-MLFoundations/week5/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/3-MLFoundations/week5/1.1.Learning_Flow.png",
+      "sha256": "ec4c3d100085aa57b686c30fb391a817917120ebe2b923313f4e8f3255db0f9d"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week4/7.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week4/7.1.Learning_Flow.png",
+      "sha256": "15aa05231930be9b0313677145afc4db4dc623290dcf5a7d8a7c133cfcc10886"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week4/6.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week4/6.1.Learning_Flow.png",
+      "sha256": "a48cd980ed77e3ead64a52cd8bc199eb5df9bfdba49e763755193b3767d631bd"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week4/5.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week4/5.1.Learning_Flow.png",
+      "sha256": "fc2a41921c3baab04863aa6c7fc4dda1ac7a13afb5a2b0fd66ade10650027d0f"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week4/4.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week4/4.1.Learning_Flow.png",
+      "sha256": "3895137c454a8a69002fdd65adb325f918e4aedcba277069548554228af17e65"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week4/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week4/3.1.Learning_Flow.png",
+      "sha256": "96fa66ec80e03426285859603707e8fdf81ffb054715c017b31204e21c03d0f8"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week4/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week4/2.1.Learning_Flow.png",
+      "sha256": "b8e0748c3e03ff3bf45262b306164a6cba233a8b48e6cbcaf9ef99462fce4a46"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week4/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week4/1.1.Learning_Flow.png",
+      "sha256": "53a75003db2ed819afb7c28deca6ce035913828a716dbb0690f787bd6612bc5c"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week3/6.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week3/6.1.Learning_Flow.png",
+      "sha256": "c8d3e8daf102ad1628c468eba19277b581920527d5db77b392da0acd12269298"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week3/5.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week3/5.1.Learning_Flow.png",
+      "sha256": "5238f1ee97cb392f295f39a62d95600407fa8e4b2e00b91975e4834d56499170"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week3/4.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week3/4.1.Learning_Flow.png",
+      "sha256": "41c704634f46a1610008c3aeb7b86898f00567fa6de5d830cce4bea0504ae20a"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week3/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week3/3.1.Learning_Flow.png",
+      "sha256": "dd11b5977ad452e25316af5c859e1f36c6f0a86da15777c91ba74b7c1cbcb511"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week3/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week3/2.1.Learning_Flow.png",
+      "sha256": "acbb4b50baca8ddd251d380ba17bdce37ccbb6ea3f6b5212dccec13d63abf5c4"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/2-DataAnalysis_Visualization/week3/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/2-DataAnalysis_Visualization/week3/1.1.Learning_Flow.png",
+      "sha256": "2a4b1607ce7ef1cf322ef6565ec38e08f5d338716495d603387e7967b597e31e"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week2/4.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week2/4.1.Learning_Flow.png",
+      "sha256": "1d154783c45296ca5168954b86a75eaba830b458238bf4db2c7e5ddb5a7db20e"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week2/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week2/3.1.Learning_Flow.png",
+      "sha256": "41dd6e4e38d9ecda4aa32e779f8f2e02d563da98fb00b017e6c1acad930a01fe"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week2/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week2/2.1.Learning_Flow.png",
+      "sha256": "4241a9b984ff8e6ab2ffcdd261f5ee2172fa9dfa6523a32ddff617b3775115c3"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week2/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week2/1.1.Learning_Flow.png",
+      "sha256": "31fc94536edc864d05794b2f856686132cea10e38b76d742861e84d103a0d1ad"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week1/5.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week1/5.1.Learning_Flow.png",
+      "sha256": "b7c7ebb95bb58ce1f0bccdd7574146c5cfc11d72696903c0e92f64d715547fab"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week1/3.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week1/3.1.Learning_Flow.png",
+      "sha256": "20de5f2b0fc7f171eb6ed82bfdff180390e408b6e4da0b35d5841ff7de56771a"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week1/2.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week1/2.1.Learning_Flow.png",
+      "sha256": "448055f8668118ee7c20add1068227ec90a8937894ad100b47adf94420aef72c"
+    },
+    {
+      "source": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/1-PythonFundations/week1/1.1.Learning_Flow.png",
+      "destination": "/Users/mahendrapalagiri/Documents/GitHub/aijourney_python/docs/visuals/archive/text-card-batch/1-PythonFundations/week1/1.1.Learning_Flow.png",
+      "sha256": "685426f7032d3064c48416a5e233839661b616ddf773ba171587c70b712ac457"
+    }
+  ],
+  "refinementArchives": [
+    {
+      "sourcePath": "1-PythonFundations/week2/0.1.Weekly_Visual_Guide.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/1-PythonFundations/week2/0.1.Weekly_Visual_Guide.png",
+      "sha256": "082d5e012595103b3eaf8b4aa80beaeaa02694e0692ae33059f150ab133f47de"
+    },
+    {
+      "sourcePath": "2-DataAnalysis_Visualization/week3/0.1.Weekly_Visual_Guide.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/2-DataAnalysis_Visualization/week3/0.1.Weekly_Visual_Guide.png",
+      "sha256": "7ae044eed03a0ac276837ca47a75cce9ad448ad5e18708022e7fc8f8f0046e74"
+    },
+    {
+      "sourcePath": "2-DataAnalysis_Visualization/week4/0.1.Weekly_Visual_Guide.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/2-DataAnalysis_Visualization/week4/0.1.Weekly_Visual_Guide.png",
+      "sha256": "dcfa6fe5855c065e852e0d97650912298cac9f571fee08a670803da129c5b43d"
+    },
+    {
+      "sourcePath": "3-MLFoundations/week7/0.1.Weekly_Visual_Guide.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/3-MLFoundations/week7/0.1.Weekly_Visual_Guide.png",
+      "sha256": "e8dfead7dd5d06a2f4e55301d725183df5176aeae83ffc657882323206716b82"
+    },
+    {
+      "sourcePath": "4-DeepLearningFoundations/week10/0.1.Weekly_Visual_Guide.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/4-DeepLearningFoundations/week10/0.1.Weekly_Visual_Guide.png",
+      "sha256": "5cbaf4db390d2145837018475b64397fddb9831097bd2af239f204bf65e857e3"
+    },
+    {
+      "sourcePath": "4-DeepLearningFoundations/week11/0.1.Weekly_Visual_Guide.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/4-DeepLearningFoundations/week11/0.1.Weekly_Visual_Guide.png",
+      "sha256": "f52c112cd956f312a588bf902c9fcc121488d44ac7b486fe1d088ad674fae5ef"
+    },
+    {
+      "sourcePath": "4-DeepLearningFoundations/week12/7.1.Learning_Flow.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/4-DeepLearningFoundations/week12/7.1.Learning_Flow.png",
+      "sha256": "0b42a1e30c71d2c0aa0fc9985d1329789bda7ed66c94fa26c0c26555dc76d58f"
+    },
+    {
+      "sourcePath": "5-AppliedAI/week13/3.1.Learning_Flow.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/5-AppliedAI/week13/3.1.Learning_Flow.png",
+      "sha256": "12fc5c16135fc399da70a79487d6ac8d2e8b091f6b54d65a4e17027182927d1c"
+    },
+    {
+      "sourcePath": "5-AppliedAI/week13/4.2.Learning_Flow.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/5-AppliedAI/week13/4.2.Learning_Flow.png",
+      "sha256": "824125ba9335a0a2b460a706c3c66e7e4169dc634c3479849e00b92518c7513a"
+    },
+    {
+      "sourcePath": "5-AppliedAI/week13/5.1.Learning_Flow.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/5-AppliedAI/week13/5.1.Learning_Flow.png",
+      "sha256": "84db54025e00099cac6cd2159ca0a217e08f186e86fb95cc56de528af310745f"
+    },
+    {
+      "sourcePath": "5-AppliedAI/week13/6.2.Learning_Flow.png",
+      "archivePath": "docs/visuals/archive/refinement-2026-10-23/5-AppliedAI/week13/6.2.Learning_Flow.png",
+      "sha256": "1847ffd36d3a975d431e68eca0a9df149499ae08d2f942083c3003553adf0f1a"
+    }
+  ],
+  "coverageSummary": {
+    "meaning": "Sufficient means a visual summary of the main week/day concepts, not a replacement for full lesson theory or every exercise.",
+    "weeks1Through13": "sufficient_for_core_visual_summary",
+    "week14": "Days 1–2 sufficient; later days not covered",
+    "laterAddendum": "outside_current_coverage",
+    "statusSheet": "docs/visuals/STATUS.md"
+  }
+}
